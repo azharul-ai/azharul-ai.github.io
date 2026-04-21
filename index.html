@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Md. Azharul Islam - Senior Software Engineer Portfolio. 8+ years experience in PHP, Laravel, React, Node.js, C#, ASP.NET, Golang">
     <meta name="author" content="Md. Azharul Islam">
-    <title>Md. Azharul Islam | Senior Software Engineer</title>
+    <meta name="keywords" content="Senior Software Engineer, PHP, Laravel, React, Full Stack Developer, Dhaka, Bangladesh, C#, ASP.NET, Golang">
+    <title>Md. Azharul Islam | Senior Software Engineer | 8+ Years Experience</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -13,38 +16,140 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         :root {
             --bg-primary: #ffffff;
-            --bg-secondary: #f3f4f6;
-            --text-primary: #111827;
-            --text-secondary: #4b5563;
-            --accent: #2563eb;
-            --accent-hover: #1d4ed8;
-            --border: #e5e7eb;
-            --card-bg: #ffffff;
-            --shadow: 0 1px 3px rgba(0,0,0,0.1);
-            --testimonial-bg: #f9fafb;
+            --bg-secondary: #f8fafc;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --accent: #3b82f6;
+            --accent-glow: rgba(59,130,246,0.3);
+            --accent-dark: #2563eb;
+            --border: #e2e8f0;
+            --card-bg: rgba(255,255,255,0.9);
+            --shadow-sm: 0 4px 6px -1px rgba(0,0,0,0.05);
+            --shadow-md: 0 10px 25px -5px rgba(0,0,0,0.08);
+            --shadow-lg: 0 20px 40px -12px rgba(0,0,0,0.1);
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
         }
 
         [data-theme="dark"] {
-            --bg-primary: #111827;
-            --bg-secondary: #1f2937;
-            --text-primary: #f9fafb;
-            --text-secondary: #9ca3af;
-            --accent: #3b82f6;
-            --accent-hover: #60a5fa;
-            --border: #374151;
-            --card-bg: #1f2937;
-            --shadow: 0 1px 3px rgba(0,0,0,0.3);
-            --testimonial-bg: #1f2937;
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --accent: #60a5fa;
+            --accent-dark: #3b82f6;
+            --border: #334155;
+            --card-bg: rgba(30,41,59,0.95);
+            --shadow-sm: 0 4px 6px -1px rgba(0,0,0,0.2);
+            --shadow-md: 0 10px 25px -5px rgba(0,0,0,0.3);
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            font-family: 'Inter', sans-serif;
             background: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.6;
             transition: all 0.3s ease;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.4;
+        }
+
+        .animated-bg span {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            filter: blur(80px);
+            animation: float 20s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+        }
+
+        .animated-bg span:nth-child(1) { background: #667eea; top: -100px; left: -100px; animation-delay: 0s; }
+        .animated-bg span:nth-child(2) { background: #764ba2; bottom: -100px; right: -100px; animation-delay: 5s; }
+        .animated-bg span:nth-child(3) { background: #f093fb; top: 50%; left: 50%; animation-delay: 10s; }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .theme-toggle {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-primary);
+            transition: all 0.3s;
         }
 
         .container {
@@ -53,121 +158,184 @@
             padding: 0 20px;
         }
 
-        /* Theme Toggle */
-        .theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 50px;
-            padding: 10px 15px;
-            cursor: pointer;
-            z-index: 1000;
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--text-primary);
-            transition: all 0.3s;
-        }
-
-        .theme-toggle:hover {
-            transform: scale(1.05);
-        }
-
-        /* Header */
-        .header {
-            background: var(--bg-secondary);
-            padding: 60px 0 40px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .profile-header {
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            gap: 40px;
+            padding: 100px 0 60px;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .typed-text {
+            font-size: 28px;
+            color: var(--accent);
+            margin-bottom: 20px;
+            min-height: 70px;
+        }
+
+        .hero-description {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
             flex-wrap: wrap;
         }
 
-        .profile-pic-placeholder {
-            width: 150px;
-            height: 150px;
-            background: linear-gradient(135deg, var(--accent), #7c3aed);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 60px;
-            font-weight: bold;
-            color: white;
+        .stat {
+            text-align: center;
         }
 
-        .profile-info h1 {
-            font-size: 48px;
-            margin-bottom: 10px;
-            color: var(--text-primary);
-        }
-
-        .profile-info .title {
-            font-size: 20px;
+        .stat-number {
+            font-size: 36px;
+            font-weight: 800;
             color: var(--accent);
-            margin-bottom: 10px;
         }
 
-        .profile-info .location {
+        .stat-label {
+            font-size: 14px;
             color: var(--text-secondary);
-            margin-bottom: 15px;
         }
 
-        .badge {
-            display: inline-block;
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
             background: var(--accent);
             color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            margin-right: 8px;
-            margin-bottom: 8px;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        /* Sections */
+        .btn-primary:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px var(--accent-glow);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .profile-circle {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            margin: 0 auto;
+            animation: pulse 3s infinite;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .profile-circle img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-circle img:hover {
+            transform: scale(1.02);
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
+            50% { transform: scale(1.02); box-shadow: 0 30px 50px var(--accent-glow); }
+        }
+
+        /* Section Styles */
         .section {
-            padding: 50px 0;
+            padding: 80px 0;
             border-bottom: 1px solid var(--border);
         }
 
         .section-title {
-            font-size: 32px;
-            margin-bottom: 30px;
-            color: var(--text-primary);
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            text-align: center;
             position: relative;
-            display: inline-block;
         }
 
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background: var(--accent);
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-1);
+            border-radius: 2px;
         }
 
-        /* About */
-        .about-text {
-            font-size: 18px;
-            line-height: 1.8;
-            color: var(--text-secondary);
-        }
-
-        /* Experience */
-        .experience-item {
-            margin-bottom: 40px;
-            padding: 20px;
+        /* Cards */
+        .experience-item, .project-card, .cert-card, .testimonial-card {
             background: var(--card-bg);
-            border-radius: 12px;
-            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
             border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 25px;
+            transition: all 0.3s;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .experience-item:hover, .project-card:hover, .testimonial-card:hover, .cert-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent);
         }
 
         .exp-header {
@@ -180,7 +348,6 @@
         .exp-title {
             font-size: 22px;
             font-weight: 600;
-            color: var(--text-primary);
         }
 
         .exp-company {
@@ -193,6 +360,12 @@
             font-size: 14px;
         }
 
+        .exp-location {
+            color: var(--text-secondary);
+            font-size: 13px;
+            margin-top: 4px;
+        }
+
         .exp-duties {
             list-style: none;
             margin-top: 15px;
@@ -202,41 +375,44 @@
             margin-bottom: 8px;
             padding-left: 20px;
             position: relative;
-            color: var(--text-secondary);
         }
 
         .exp-duties li::before {
-            content: '▹';
+            content: '✓';
             position: absolute;
             left: 0;
             color: var(--accent);
+            font-weight: bold;
         }
 
-        /* Projects Grid */
-        .projects-grid {
+        .projects-grid, .testimonials-grid, .cert-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 25px;
-        }
-
-        .project-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 20px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            gap: 30px;
         }
 
         .project-title {
             font-size: 20px;
             font-weight: 600;
             margin-bottom: 12px;
-            color: var(--text-primary);
+        }
+
+        .project-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-top: 8px;
+            margin-bottom: 12px;
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover .project-title {
+            color: var(--accent);
         }
 
         .project-skills {
@@ -254,39 +430,92 @@
             font-size: 12px;
         }
 
-        /* Skills Cloud */
         .skills-cloud {
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
+            justify-content: center;
         }
 
         .skill-badge {
-            background: var(--accent);
+            background: var(--gradient-1);
             color: white;
-            padding: 8px 18px;
-            border-radius: 25px;
+            padding: 10px 24px;
+            border-radius: 40px;
             font-size: 14px;
             font-weight: 500;
-            transition: transform 0.2s;
+            transition: all 0.3s;
+            cursor: default;
         }
 
         .skill-badge:hover {
             transform: scale(1.05);
+            box-shadow: 0 5px 15px var(--accent-glow);
         }
 
-        /* Certifications */
-        .cert-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
+        /* Testimonial with Avatar */
+        .testimonial-card {
+            display: flex;
+            flex-direction: column;
         }
 
-        .cert-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 18px;
+        .testimonial-avatar {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .avatar-circle {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+            color: white;
+        }
+
+        .avatar-info {
+            flex: 1;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .testimonial-title {
+            font-size: 12px;
+            color: var(--accent);
+        }
+
+        .testimonial-relationship {
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin-top: 2px;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-top: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .testimonial-text::before {
+            content: '"';
+            font-size: 40px;
+            position: absolute;
+            left: -5px;
+            top: -15px;
+            opacity: 0.3;
+            font-family: serif;
         }
 
         .cert-title {
@@ -298,80 +527,96 @@
         .cert-issuer {
             color: var(--accent);
             font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
             margin-bottom: 5px;
+        }
+
+        .cert-issuer i {
+            font-size: 20px;
         }
 
         .cert-date {
             color: var(--text-secondary);
             font-size: 12px;
+            margin-top: 5px;
         }
 
-        /* Testimonials / Recommendations */
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 25px;
-        }
-
-        .testimonial-card {
-            background: var(--testimonial-bg);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 20px;
-            transition: transform 0.3s;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-3px);
-        }
-
-        .testimonial-text {
-            font-style: italic;
+        .cert-id {
             color: var(--text-secondary);
-            margin-bottom: 15px;
-            line-height: 1.6;
+            font-size: 11px;
+            margin-top: 5px;
+            font-family: monospace;
         }
 
-        .testimonial-author {
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 5px;
-        }
-
-        .testimonial-title {
-            font-size: 13px;
-            color: var(--accent);
-        }
-
-        /* Contact */
-        .contact-links {
+        .cert-skills {
             display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 10px;
+        }
+
+        .cert-skill-tag {
+            background: var(--bg-secondary);
+            color: var(--accent);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 10px;
+        }
+
+        /* About Text */
+        .about-text {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            text-align: center;
+            background: var(--gradient-1);
+            border-radius: 30px;
+            padding: 50px;
+            color: white;
+        }
+
+        .contact-section h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
+            margin-top: 30px;
         }
 
         .contact-btn {
+            background: white;
+            color: var(--accent-dark);
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            padding: 12px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            border: 1px solid var(--border);
-            transition: all 0.3s;
         }
 
         .contact-btn:hover {
-            background: var(--accent);
-            color: white;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
 
         /* Footer */
         .footer {
-            background: var(--bg-secondary);
             text-align: center;
             padding: 30px 0;
             color: var(--text-secondary);
@@ -379,83 +624,124 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .profile-header {
-                flex-direction: column;
+            .hero-content {
+                grid-template-columns: 1fr;
                 text-align: center;
             }
-            .profile-info h1 {
-                font-size: 32px;
+            .hero-text h1 {
+                font-size: 36px;
             }
-            .section-title::after {
-                left: 50%;
-                transform: translateX(-50%);
+            .typed-text {
+                font-size: 22px;
+            }
+            .hero-stats {
+                justify-content: center;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .profile-circle {
+                width: 250px;
+                height: 250px;
+                font-size: 70px;
             }
             .section-title {
-                display: block;
-                text-align: center;
+                font-size: 32px;
             }
-            .projects-grid, .testimonials-grid {
-                grid-template-columns: 1fr;
+            .nav-links {
+                display: none;
             }
         }
 
-        /* Print Styles */
         @media print {
-            .theme-toggle, .contact-btn {
+            .navbar, .theme-toggle, .hero-buttons, .contact-buttons, .animated-bg {
                 display: none;
-            }
-            body {
-                background: white;
-                color: black;
-            }
-            .experience-item, .project-card, .cert-card, .testimonial-card {
-                break-inside: avoid;
             }
         }
     </style>
 </head>
 <body>
-    <button class="theme-toggle" onclick="toggleTheme()">🌓 Dark/Light Mode</button>
+    <div class="animated-bg">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
-    <!-- Header Section -->
-    <div class="header">
-        <div class="container">
-            <div class="profile-header">
-                <div class="profile-pic-placeholder">
-                    AI
-                </div>
-                <div class="profile-info">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Azharul</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#certifications">Certifications</a>
+                <a href="#recommendations">Recommendations</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <button class="theme-toggle" onclick="toggleTheme()">🌓 Dark/Light</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
                     <h1>Md. Azharul Islam</h1>
-                    <div class="title">Senior Software Engineer @ Fiftytwo Digital Ltd. | PHP Expert | Laravel Expert | React JS | Node JS | C# | ASP.NET | Golang | 8+ YOE | Agile | Scrum</div>
-                    <div class="location">📍 Dhaka, Bangladesh</div>
-                    <div>
-                        <span class="badge">8+ Years Experience</span>
-                        <span class="badge">Full Stack Developer</span>
-                        <span class="badge">Team Lead</span>
-                        <span class="badge">15+ Recommendations</span>
+                    <div class="typed-text" id="typed-text"></div>
+                    <p class="hero-description">Senior Software Engineer with 8+ years of experience crafting scalable software solutions. Expert in PHP, Laravel, React, Node, C#, ASP.NET, Golang, and modern DevOps practices.</p>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stat-number">8+</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">Projects Delivered</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">Recommendations</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">7</div>
+                            <div class="stat-label">Certifications</div>
+                        </div>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn-primary"><i class="fas fa-paper-plane"></i> Hire Me</a>
+                        <a href="#" class="btn-outline" id="resume-btn"><i class="fas fa-download"></i> Download Resume</a>
+                        <a href="https://github.com/azharul-ai" target="_blank" class="btn-outline"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="profile-circle">
+                        <img src="images/profile.jpg" onerror="this.onerror=null; this.parentElement.innerHTML='AI'; this.parentElement.style.background='var(--gradient-1)'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.style.fontSize='100px'; this.parentElement.style.fontWeight='bold';" alt="Md. Azharul Islam - Senior Software Engineer">
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <div class="container">
         <!-- About Section -->
-        <div class="section">
+        <!-- About Section -->
+        <section id="about" class="section">
             <h2 class="section-title">About Me</h2>
             <div class="about-text">
-                <p>Hello and Welcome! I'm thrilled to have you visit my profile. I'm a passionate Full Stack Developer with extensive experience in designing and developing a diverse range of projects and web applications. My journey began with a B.Sc. in Electronics & Communication Engineering from Hajee Mohammad Danesh Science and Technology University (HSTU) in Dinajpur, Bangladesh. During my university years, I discovered a love for programming, which led me to pursue a career in software development.</p>
+                <p>Hello and Welcome! I'm a passionate Software Engineer with extensive experience in designing and developing enterprise-grade software solutions. My journey began with a B.Sc. in Electronics & Communication Engineering from Hajee Mohammad Danesh Science and Technology University (HSTU) in Dinajpur, Bangladesh.</p>
                 <br>
-                <p>Currently, I'm thriving as a Senior Software Engineer at Fiftytwo Digital Ltd. in Dhaka, where I'm involved in creating innovative software solutions.</p>
+                <p>Currently, I'm thriving as a Senior Software Engineer at Fiftytwo Digital Ltd. in Dhaka, where I collaborate with Danish and European teams to deliver scalable enterprise solutions.</p>
                 <br>
-                <p><strong>Core Expertise:</strong> Web Development (HTML5, CSS3, JavaScript, jQuery, Vue.js, React.js/Redux, Tailwind CSS, Bootstrap), API Development (RESTful APIs using PHP, Laravel, ASP.NET), Backend Development (Laravel, CodeIgniter, Zend Framework, C#, ASP.NET Core MVC), Database Management (MySQL, Oracle, MS SQL Server), DevOps (Docker, Kubernetes, Jenkins, CI/CD), and Agile Project Management.</p>
+                <p><strong>Full SDLC Expertise:</strong> Requirement Analysis & Technical Architecture | Full-Stack Application Development (PHP/Laravel, React.js, Node.js, C#/.NET) | RESTful API Design & Integration | Database Architecture (MySQL, MS SQL Server) | CI/CD Pipeline Implementation (Jenkins, Docker) | Code Review & Quality Assurance | Agile & Scrum Methodologies | Team Leadership & Mentoring | Production Deployment & Maintenance</p>
                 <br>
-                <p><strong>Open to roles:</strong> Lead/Senior Software Engineer, Full Stack Developer, PHP/Laravel/CodeIgniter/Zend Developer, MERN Stack Developer, .NET Developer.</p>
+                <p><strong>Open to roles:</strong> Staff/Lead/Senior Software Engineer, Full Stack Developer, Technical Architect, PHP/Laravel/.NET Expert.</p>
             </div>
-        </div>
+        </section>
 
-        <!-- Experience Section -->
-        <div class="section">
+        <!-- Experience Section - UPDATED WITH DETAILED DESCRIPTIONS -->
+        <section id="experience" class="section">
             <h2 class="section-title">Work Experience</h2>
             
             <div class="experience-item">
@@ -463,17 +749,21 @@
                     <div>
                         <div class="exp-title">Senior Software Engineer</div>
                         <div class="exp-company">Fiftytwo Digital Ltd.</div>
+                        <div class="exp-location">📍 Hybrid, Bangladesh</div>
                     </div>
-                    <div class="exp-date">Aug 2023 - Present (2 yrs 9 mos)</div>
+                    <div class="exp-date">Aug 2023 - Present</div>
                 </div>
                 <ul class="exp-duties">
-                    <li>Designed and developed robust web applications ensuring seamless user experiences and responsive design</li>
-                    <li>Developed and integrated RESTful APIs to facilitate communication between applications</li>
-                    <li>Developed and executed automated test scripts for software quality assurance</li>
-                    <li>Collaborated with stakeholders for requirements gathering and alignment with business objectives</li>
-                    <li>Active participation in Agile practices including Scrum ceremonies (sprint planning, retrospectives, backlog refinement)</li>
-                    <li>Leveraged PHP, Laravel, ASP.NET, C#, Entity Framework, .NET, and SQL Server</li>
-                    <li>Implemented CI/CD pipelines using Jenkins and Docker</li>
+                    <li>Collaborating with Danish and European software engineers, architects, testers, and business analysts to deliver scalable enterprise solutions</li>
+                    <li>Engineering high-performance backend systems and RESTful APIs using Laravel and PHP, focusing on scalability, maintainability, and optimal server-side design</li>
+                    <li>Developing fully responsive, user-friendly front-end interfaces using React.js, JavaScript, Tailwind CSS, Bootstrap, jQuery, and AJAX</li>
+                    <li>Managing MS SQL Server databases, optimizing queries, and ensuring high data reliability for dynamic business workflows</li>
+                    <li>Implementing automated testing with PHPUnit and contributing to continuous code quality improvements</li>
+                    <li>Using Git and Bitbucket for structured version control, pull requests, and collaborative development</li>
+                    <li>Configuring CI/CD pipelines with Jenkins to automate builds, testing, and deployments for Laravel systems</li>
+                    <li>Working in Agile/Scrum environments using JIRA for sprint planning, backlog refinement, and cross-functional delivery</li>
+                    <li>Built foundational understanding of system design, including API design, modular architecture, caching, and scalable service communication patterns</li>
+                    <li>Gained hands-on familiarity with Node.js services, AWS cloud workflows, and Linux/Ubuntu environments through collaboration with DevOps and backend teams</li>
                 </ul>
             </div>
 
@@ -481,16 +771,18 @@
                 <div class="exp-header">
                     <div>
                         <div class="exp-title">Senior Software Engineer</div>
-                        <div class="exp-company">Smart Technologies (BD) Ltd.</div>
+                        <div class="exp-company">Smart Technologies (BD) Limited</div>
+                        <div class="exp-location">📍 Onsite, Bangladesh</div>
                     </div>
                     <div class="exp-date">Apr 2022 - Aug 2023 (1 yr 5 mos)</div>
                 </div>
                 <ul class="exp-duties">
-                    <li>Developed high-quality software applications using PHP, Laravel and Zend Framework</li>
-                    <li>Provided technical leadership and guidance to junior developers</li>
-                    <li>Collaborated with project managers, business analysts, and stakeholders</li>
-                    <li>Designed and optimized database schemas, wrote complex SQL queries</li>
-                    <li>Practiced agile development techniques including Scrum</li>
+                    <li>Designed and maintained scalable backend systems using PHP, Laravel, and Zend across high-traffic applications</li>
+                    <li>Built and integrated RESTful APIs enabling seamless communication across microservices and third-party systems</li>
+                    <li>Refactored and optimized legacy modules for improved maintainability and system performance</li>
+                    <li>Designed efficient database schemas and optimized queries for both MySQL and MS SQL Server</li>
+                    <li>Reviewed code and mentored junior developers, ensuring adherence to clean coding standards and best practices</li>
+                    <li>Contributed to Agile processes, coordinating sprints and collaborating closely with cross-functional teams</li>
                 </ul>
             </div>
 
@@ -498,28 +790,16 @@
                 <div class="exp-header">
                     <div>
                         <div class="exp-title">Senior Software Engineer</div>
-                        <div class="exp-company">Computer Source Infotech</div>
+                        <div class="exp-company">Computer Source InfoTech</div>
+                        <div class="exp-location">📍 Onsite, Bangladesh</div>
                     </div>
-                    <div class="exp-date">May 2021 - Mar 2022 (11 mos)</div>
+                    <div class="exp-date">Nov 2020 - Mar 2022 (1 yr 5 mos)</div>
                 </div>
                 <ul class="exp-duties">
-                    <li>Requirements analysis, design and development using Web API, GIT, JIRA, JavaScript, jQuery, Bootstrap, AJAX, JSON, MySQL, PHP, Laravel</li>
-                    <li>Payment Gateway Integration, Email Integration, SMS Integration</li>
-                    <li>Worked on Asset Management Software and Investment Management Software</li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <div class="exp-header">
-                    <div>
-                        <div class="exp-title">Software Engineer</div>
-                        <div class="exp-company">Computer Source Infotech</div>
-                    </div>
-                    <div class="exp-date">Nov 2020 - Apr 2021 (6 mos)</div>
-                </div>
-                <ul class="exp-duties">
-                    <li>Full-stack web development using PHP, Laravel, JavaScript, jQuery, Bootstrap, MySQL</li>
-                    <li>Collaborated with cross-functional teams for project delivery</li>
+                    <li>Analyzed requirements, designed, and developed full-stack web applications using Laravel, PHP, JavaScript, jQuery, HTML5, CSS3, Bootstrap, AJAX, and JSON</li>
+                    <li>Developed large-scale Asset Management and Investment Management systems with focus on reporting, performance analytics, and workflow optimization</li>
+                    <li>Integrated payment gateways, email services, and SMS services for end-to-end business automation</li>
+                    <li>Managed source code using Git and worked in Agile environments (Scrum)</li>
                 </ul>
             </div>
 
@@ -528,13 +808,16 @@
                     <div>
                         <div class="exp-title">PHP Programmer</div>
                         <div class="exp-company">ATI Limited</div>
+                        <div class="exp-location">📍 Onsite, Bangladesh</div>
                     </div>
-                    <div class="exp-date">Jan 2019 - Nov 2020 (1 yr 11 mos)</div>
+                    <div class="exp-date">Aug 2018 - Nov 2020 (2 yr 4 mos)</div>
                 </div>
                 <ul class="exp-duties">
-                    <li>Requirements analysis, design and development using PHP, Laravel, Rest API, GIT, JIRA</li>
-                    <li>Debugging and solving complex problems in legacy systems</li>
-                    <li>Used GIT for source code management</li>
+                    <li>Developed and maintained dynamic web applications using Laravel, PHP, and CodeIgniter</li>
+                    <li>Designed and optimized MySQL databases for fast and scalable data handling</li>
+                    <li>Troubleshot, debugged, and resolved complex backend and frontend issues</li>
+                    <li>Migrated and improved legacy PHP modules for better performance</li>
+                    <li>Integrated various third-party APIs and collaborated with front-end teams for seamless UI/UX delivery</li>
                 </ul>
             </div>
 
@@ -543,242 +826,403 @@
                     <div>
                         <div class="exp-title">Junior Web Developer</div>
                         <div class="exp-company">Northern Tech BD</div>
+                        <div class="exp-location">📍Onsite, Bangladesh</div>
                     </div>
                     <div class="exp-date">Jan 2018 - Jun 2018 (6 mos)</div>
                 </div>
                 <ul class="exp-duties">
-                    <li>Created and maintained custom WordPress themes and plugins</li>
-                    <li>Enhanced site functionality and performance</li>
-                    <li>Debugging and maintenance of existing code</li>
-                    <li>Collaborated with other developers</li>
+                    <li>Built and maintained custom WordPress themes and plugins</li>
+                    <li>Enhanced functionality and performance of existing sites</li>
+                    <li>Handled debugging, issue resolution, and frontend/backend integration</li>
+                    <li>Collaborated with team leads and developers for module delivery</li>
                 </ul>
             </div>
-        </div>
+        </section>
 
         <!-- Projects Section -->
-        <div class="section">
+        <!-- Projects Section - UPDATED WITH ENTERPRISE PROJECTS -->
+        <section id="projects" class="section">
             <h2 class="section-title">Projects</h2>
-            <div class="projects-grid">
+            <p style="text-align: center; margin-bottom: 30px; max-width: 800px; margin-left: auto; margin-right: auto; color: var(--text-secondary);">
+                Enterprise-level web portals and asset management systems for leading financial institutions in Bangladesh
+            </p>
+            <div class="projects-grid">               
+
+                <!-- Shanta Asset Management Portal and Backoffice -->
                 <div class="project-card">
-                    <div class="project-title">Asset Management Software</div>
-                    <div class="project-skills"><span class="skill-tag">Back-End Development</span></div>
+                    <div class="project-title">Shanta Asset Management Portal & Backoffice</div>
+                    <div class="project-description">Asset management system with investor portal, portfolio tracking, and administrative backoffice dashboard.</div>
+                    <div class="project-skills">
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">Laravel</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">RESTful APIs</span>
+                        <span class="skill-tag">MS SQL Server</span>
+                    </div>
                 </div>
+
+                <!-- Shanta Investment Management -->
                 <div class="project-card">
-                    <div class="project-title">Blog</div>
-                    <div class="project-skills"><span class="skill-tag">HTML5</span><span class="skill-tag">CSS3</span></div>
+                    <div class="project-title">Shanta Investment Management</div>
+                    <div class="project-description">Investment tracking platform with real-time portfolio monitoring and performance analytics.</div>
+                    <div class="project-skills">
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">Laravel</span>
+                        <span class="skill-tag">React JS</span>
+                        <span class="skill-tag">RESTful APIs</span>
+                        <span class="skill-tag">MS SQL Server</span>
+                    </div>
                 </div>
+
+                <!-- UCB Asset Management Portal and Backoffice -->
                 <div class="project-card">
-                    <div class="project-title">Blood Management System</div>
-                    <div class="project-skills"><span class="skill-tag">PHP</span><span class="skill-tag">MySQL</span><span class="skill-tag">HTML5</span></div>
+                    <div class="project-title">UCB Asset Management Portal & Backoffice</div>
+                    <div class="project-description">Enterprise asset management solution with client portal and comprehensive backoffice administration.</div>
+                    <div class="project-skills">
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">Laravel</span>
+                        <span class="skill-tag">Vue JS</span>
+                        <span class="skill-tag">RESTful APIs</span>
+                        <span class="skill-tag">MS SQL Server</span>
+                    </div>
                 </div>
+
+                <!-- UCB Investment Management -->
                 <div class="project-card">
-                    <div class="project-title">Doctor Appointment Management</div>
-                    <div class="project-skills"><span class="skill-tag">PHP</span><span class="skill-tag">MySQL</span><span class="skill-tag">HTML5</span></div>
+                    <div class="project-title">UCB Investment Management</div>
+                    <div class="project-description">Investment portfolio management system with real-time market data integration and reporting.</div>
+                    <div class="project-skills">
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">Laravel</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">MS SQL Server</span>
+                    </div>
                 </div>
+
+                <!-- Leasing Partner Portal -->
                 <div class="project-card">
-                    <div class="project-title">ERP Software</div>
-                    <div class="project-skills"><span class="skill-tag">Back-End Development</span></div>
+                    <div class="project-title">Leasing Partner Portal</div>
+                    <div class="project-description">Comprehensive leasing management platform for partner organizations with real-time tracking and reporting.</div>
+                    <div class="project-skills">
+                        <span class="skill-tag">ASP.NET MVC</span>
+                        <span class="skill-tag">Entity Framework</span>
+                        <span class="skill-tag">C#/.NET</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">RESTful APIs</span>
+                        <span class="skill-tag">MS SQL Server</span>
+                    </div>
                 </div>
+
+                <!-- Microsoft Dynamics 365 Business Central -->
                 <div class="project-card">
-                    <div class="project-title">Investment Management Software</div>
-                    <div class="project-skills"><span class="skill-tag">Back-End Development</span></div>
+                    <div class="project-title">Microsoft Dynamics 365 Business Central</div>
+                    <div class="project-description">ERP solution integration and customization for business process automation and financial management.</div>
+                    <div class="project-skills">
+                        <span class="skill-tag">Dynamics 365</span>
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">.NET</span>
+                        <span class="skill-tag">Azure</span>
+                    </div>
                 </div>
+
+                <!-- IDLC Asset Management Portal and Backoffice -->
                 <div class="project-card">
-                    <div class="project-title">Online Shopping Management</div>
-                    <div class="project-skills"><span class="skill-tag">PHP</span><span class="skill-tag">MySQL</span><span class="skill-tag">HTML5</span></div>
+                    <div class="project-title">IDLC Asset Management Portal & Backoffice</div>
+                    <div class="project-description">Full-featured asset management system with investor portal, transaction processing, and administrative dashboard.</div>
+                    <div class="project-skills">
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">Laravel</span>
+                        <span class="skill-tag">Zend</span>
+                        <span class="skill-tag">RESTful APIs</span>
+                        <span class="skill-tag">React JS</span>
+                        <span class="skill-tag">MS SQL Server</span>
+                    </div>
                 </div>
+
+                <!-- IDLC Investment Management -->
                 <div class="project-card">
-                    <div class="project-title">Portfolio</div>
-                    <div class="project-skills"><span class="skill-tag">HTML5</span><span class="skill-tag">PHP</span><span class="skill-tag">WordPress</span></div>
+                    <div class="project-title">IDLC Investment Management</div>
+                    <div class="project-description">Investment tracking and management solution with performance analytics and client reporting.</div>
+                    <div class="project-skills">
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">Laravel</span>
+                        <span class="skill-tag">Zend</span>
+                        <span class="skill-tag">Bootstrap</span>
+                        <span class="skill-tag">MySQL</span>
+                    </div>
                 </div>
+
+                <!-- Impress Capital Web Portal -->
                 <div class="project-card">
-                    <div class="project-title">School Management System</div>
-                    <div class="project-skills"><span class="skill-tag">PHP</span><span class="skill-tag">MySQL</span></div>
+                    <div class="project-title">Impress Capital Web Portal</div>
+                    <div class="project-description">Corporate web portal for capital management with investor relations and financial reporting.</div>
+                    <div class="project-skills">
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">Laravel</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">MySQL</span>
+                    </div>
                 </div>
+
+                <!-- Eastland Insurance Web Portal -->
                 <div class="project-card">
-                    <div class="project-title">Tour and Travel Management</div>
-                    <div class="project-skills"><span class="skill-tag">HTML5</span><span class="skill-tag">CSS3</span><span class="skill-tag">JavaScript</span><span class="skill-tag">jQuery</span><span class="skill-tag">Bootstrap</span><span class="skill-tag">PHP</span><span class="skill-tag">MySQL</span></div>
+                    <div class="project-title">Eastland Insurance Web Portal</div>
+                    <div class="project-description">Insurance management portal with policy administration, claims processing, and customer dashboard.</div>
+                    <div class="project-skills">
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">Laravel</span>
+                        <span class="skill-tag">Vanilla JS</span>
+                        <span class="skill-tag">MySQL</span>
+                    </div>
                 </div>
+
+                <!-- Human Resource Management -->
                 <div class="project-card">
-                    <div class="project-title">University Management System</div>
-                    <div class="project-skills"><span class="skill-tag">PHP</span><span class="skill-tag">MySQL</span></div>
+                    <div class="project-title">Human Resource Management</div>
+                    <div class="project-description">Complete HRIS solution including employee management, payroll, attendance, and recruitment modules.</div>
+                    <div class="project-skills">
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">Laravel</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">MS SQL Server</span>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- Skills Section -->
-        <div class="section">
+        <section id="skills" class="section">
             <h2 class="section-title">Technical Skills</h2>
             <div class="skills-cloud">
-                <span class="skill-badge">PHP</span>
-                <span class="skill-badge">Laravel</span>
-                <span class="skill-badge">React.js</span>
-                <span class="skill-badge">Node.js</span>
-                <span class="skill-badge">C#</span>
-                <span class="skill-badge">ASP.NET</span>
-                <span class="skill-badge">Golang</span>
-                <span class="skill-badge">Vue.js</span>
-                <span class="skill-badge">JavaScript</span>
-                <span class="skill-badge">jQuery</span>
-                <span class="skill-badge">Python</span>
-                <span class="skill-badge">MySQL</span>
-                <span class="skill-badge">Oracle</span>
-                <span class="skill-badge">MS SQL Server</span>
-                <span class="skill-badge">MongoDB</span>
-                <span class="skill-badge">Docker</span>
-                <span class="skill-badge">Kubernetes</span>
-                <span class="skill-badge">Jenkins</span>
-                <span class="skill-badge">Git</span>
-                <span class="skill-badge">Agile/Scrum</span>
-                <span class="skill-badge">RESTful APIs</span>
-                <span class="skill-badge">HTML5/CSS3</span>
-                <span class="skill-badge">Tailwind CSS</span>
-                <span class="skill-badge">Bootstrap</span>
-                <span class="skill-badge">CodeIgniter</span>
-                <span class="skill-badge">Zend Framework</span>
+                <span class="skill-badge">PHP</span><span class="skill-badge">Laravel</span><span class="skill-badge">MVC</span>
+                <span class="skill-badge">React.js</span><span class="skill-badge">TALL Stack</span>
+                <span class="skill-badge">Node.js</span><span class="skill-badge">C#</span><span class="skill-badge">ASP.NET</span>
+                <span class="skill-badge">Golang</span><span class="skill-badge">Vue.js</span><span class="skill-badge">JavaScript</span>
+                <span class="skill-badge">jQuery</span><span class="skill-badge">MySQL</span><span class="skill-badge">MS SQL Server</span>
+                <span class="skill-badge">Docker</span><span class="skill-badge">Jenkins</span><span class="skill-badge">Git</span>
+                <span class="skill-badge">GitHub</span><span class="skill-badge">Bitbucket</span><span class="skill-badge">Postman</span>
+                <span class="skill-badge">Swagger</span><span class="skill-badge">OAuth 2.0</span><span class="skill-badge">Microservices</span>
+                <span class="skill-badge">AWS</span><span class="skill-badge">RESTful APIs</span><span class="skill-badge">Tailwind CSS</span>
+                <span class="skill-badge">Bootstrap</span><span class="skill-badge">Agile/Scrum</span><span class="skill-badge">More...</span>
             </div>
-        </div>
+        </section>
 
         <!-- Certifications Section -->
-        <div class="section">
+        <section id="certifications" class="section">
             <h2 class="section-title">Licenses & Certifications</h2>
             <div class="cert-grid">
-                <div class="cert-card">
-                    <div class="cert-title">Foundational C# with Microsoft</div>
-                    <div class="cert-issuer">freeCodeCamp</div>
-                    <div class="cert-date">Issued Nov 2024 · Credential ID: azharulecehstu-fcswm</div>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-title">Developing Front-End Apps with React</div>
-                    <div class="cert-issuer">IBM</div>
-                    <div class="cert-date">Issued Oct 2024 · Credential ID: NH6YISCHXPA5</div>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-title">The Complete Guide to Becoming a Software Architect</div>
-                    <div class="cert-issuer">Udemy</div>
-                    <div class="cert-date">Issued May 2024 · Credential ID: UC-30128eb2-ac51-4fe0-8a8a-fd218f5873a1</div>
-                </div>
+                <div class="cert-card"><div class="cert-title">Web Development with PHP and Laravel</div><div class="cert-issuer">Bangladesh Computer Council</div><div class="cert-date">2019</div></div>
+                <div class="cert-card"><div class="cert-title">Developing Front-End Apps with React</div><div class="cert-issuer"><i class="fab fa-ibm"></i> IBM</div><div class="cert-date">Oct 2024</div><div class="cert-id">NH6YISCHXPA5</div></div>
+                <div class="cert-card"><div class="cert-title">Foundational C# with Microsoft</div><div class="cert-issuer"><i class="fab fa-free-code-camp"></i> freeCodeCamp</div><div class="cert-date">Nov 2024</div><div class="cert-id">azharulecehstu-fcswm</div></div>
+                <div class="cert-card"><div class="cert-title">The Complete Guide to Becoming a Software Architect</div><div class="cert-issuer"><i class="fab fa-udemy"></i> Udemy</div><div class="cert-date">May 2024</div></div>
+                <div class="cert-card"><div class="cert-title">Introduction to Cloud Computing</div><div class="cert-issuer"><i class="fab fa-ibm"></i> IBM</div><div class="cert-date">Feb 2024</div></div>
+                <div class="cert-card"><div class="cert-title">Full Stack Web Development with MERN</div><div class="cert-issuer">Ostad</div><div class="cert-date">2024</div><div class="cert-skills"><span class="cert-skill-tag">Express.js</span><span class="cert-skill-tag">MongoDB</span><span class="cert-skill-tag">React</span></div></div>
             </div>
-        </div>
-
-        <!-- Recommendations Section -->
-        <div class="section">
-            <h2 class="section-title">Recommendations</h2>
-            <p style="margin-bottom: 25px; color: var(--text-secondary);">What colleagues say about working with me — 15+ professional recommendations</p>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-text">"I had the opportunity to work with Md. Azharul during our time at ATI Limited. From day one, Azharul impressed me with his professionalism, technical expertise, and commitment to delivering high-quality solutions. He was always proactive in tackling challenges... I highly recommend him to any team looking for a dedicated and capable engineer."</div>
-                    <div class="testimonial-author">Bablu Ahmed</div>
-                    <div class="testimonial-title">Generative AI | Agentic AI | Full Stack Engineer</div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-text">"I've had the pleasure of working closely with Azharul Bhai on several Laravel-based projects. He demonstrates a deep understanding of Laravel's framework and possesses an impressive ability to craft clean, scalable, and well-documented code. He is an excellent communicator and a true team player."</div>
-                    <div class="testimonial-author">Md. Ashad Bappy</div>
-                    <div class="testimonial-title">Sr Software Engineer at Savers Hall</div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-text">"I strongly recommend Md. Azharul Islam as a Sr. Software Engineer. He is constantly producing top-notch code and has exceptional technical abilities. He works well with others and is always eager to collaborate to find solutions to challenging issues."</div>
-                    <div class="testimonial-author">Kartic Gharami</div>
-                    <div class="testimonial-title">Senior Software Engineer @ MVI Solutions Limited</div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-text">"I highly recommend Md. Azharul Islam as a PHP developer. He is an exceptional team player who consistently communicates and collaborates effectively with his colleagues to achieve project goals. His technical knowledge and expertise in PHP programming are second to none."</div>
-                    <div class="testimonial-author">Masum Billah</div>
-                    <div class="testimonial-title">Senior Android Engineer</div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-text">"I had the pleasure of working with Azharul Islam for 1.5 years and was consistently impressed by his PHP programming knowledge and competence. He has a deep knowledge of this programming language and its subtleties, and he was able to apply solutions to complicated challenges swiftly."</div>
-                    <div class="testimonial-author">Mohammad Abdul Karim</div>
-                    <div class="testimonial-title">IT Consultant – SPFMS (iBAS++)</div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-text">"He is a good programmer, quick learner and he has good thinking ability. Hope he will be an asset for an organization."</div>
-                    <div class="testimonial-author">Harunor Rashid</div>
-                    <div class="testimonial-title">DBA || DB Automation || DB Engineer (Cloud)</div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-text">"He is very friendly, confident, responsible and skilled. He has excellent ability to take challenge."</div>
-                    <div class="testimonial-author">Md. Sheikh Nasim</div>
-                    <div class="testimonial-title">Oracle APEX || Oracle EBS || SQL || PL/SQL</div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-text">"He is very hardworking and extremely talented person. He is good at web development and also has a lot of deep technical background."</div>
-                    <div class="testimonial-author">Md. Emran Sikder</div>
-                    <div class="testimonial-title">Sr. Software Engineer | Python | Django | React</div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-text">"Md. Azharul Islam is a very good software engineer. We worked together. He worked on very complex projects and successfully finished multiple projects. He understands very fast and his concept is very clear on programming."</div>
-                    <div class="testimonial-author">Aminul Huq</div>
-                    <div class="testimonial-title">Senior Programmer at ATI Limited</div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-text">"I'm really happy to work with Azharul. He is a good team member. He is so dedicated to his work. Loyal, persevering, punctual, and can meet the committed deadline. Definitely recommend him."</div>
-                    <div class="testimonial-author">A. K. M. Nurul Hoque</div>
-                    <div class="testimonial-title">Sr. Software Engineer at ADN Diginet Ltd</div>
-                </div>
-            </div>
-        </div>
+        </section>
 
         <!-- Education Section -->
-        <div class="section">
+        <section class="section">
             <h2 class="section-title">Education</h2>
             <div class="experience-item">
-                <div class="exp-header">
-                    <div>
-                        <div class="exp-title">Bachelor of Science in Electrical, Electronics and Communications Engineering</div>
-                        <div class="exp-company">Hajee Mohammad Danesh Science & Technology University</div>
-                    </div>
-                    <div class="exp-date">2013 – 2017</div>
-                </div>
-                <div>Grade: First Class</div>
+                <div class="exp-header"><div><div class="exp-title">B.Sc. in Electronics and Communication Engineering</div><div class="exp-company">Hajee Mohammad Danesh Science & Technology University</div></div><div class="exp-date">2013 – 2017</div></div>
+                <div>CGPA: 3.27</div>
             </div>
             <div class="experience-item">
-                <div class="exp-header">
-                    <div>
-                        <div class="exp-title">Higher Secondary Certificate (Science)</div>
-                        <div class="exp-company">Saidpur Govt. Science College</div>
-                    </div>
-                    <div class="exp-date">2010 – 2012</div>
-                </div>
-                <div>Grade: 5.00</div>
+                <div class="exp-header"><div><div class="exp-title">Higher Secondary Certificate (Science)</div><div class="exp-company">Saidpur Govt. Science College</div></div><div class="exp-date">2010 – 2012</div></div>
+                <div>GPA: 5.00</div>
             </div>
-        </div>
+        </section>
+
+        <!-- Recommendations Section - FULL CONTENT WITH AVATARS -->
+        <section id="recommendations" class="section">
+            <h2 class="section-title">Recommendations</h2>
+            <p style="text-align: center; margin-bottom: 30px; color: var(--text-secondary);">What colleagues say about working with me — 15+ professional recommendations</p>
+            <div class="testimonials-grid">
+                <!-- Bablu Ahmed -->
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">
+                        <div class="avatar-circle">BA</div>
+                        <div class="avatar-info">
+                            <div class="testimonial-author">Bablu Ahmed</div>
+                            <div class="testimonial-title">Generative AI | Agentic AI | Full Stack Engineer</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">I had the opportunity to work with Md. Azharul during our time at ATI Limited. From day one, Azharul impressed me with his professionalism, technical expertise, and commitment to delivering high-quality solutions. He was always proactive in tackling challenges and never hesitated to support the team when needed. His problem-solving skills, combined with a strong understanding of software development best practices, made him a valuable asset to any project we worked on together. Beyond his technical abilities, Azharul is a great teammate, reliable, collaborative, and easy to work with. I highly recommend him to any team looking for a dedicated and capable engineer.</div>
+                </div>
+                <!-- Md. Ashad Bappy -->
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">
+                        <div class="avatar-circle">MB</div>
+                        <div class="avatar-info">
+                            <div class="testimonial-author">Md. Ashad Bappy</div>
+                            <div class="testimonial-title">Sr Software Engineer at Savers Hall</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">I've had the pleasure of working closely with Azharul Bhai on several Laravel-based projects, and I can confidently say that his skills as a Laravel developer are exceptional. He not only demonstrates a deep understanding of Laravel's framework but also possesses an impressive ability to craft clean, scalable, and well-documented code. Beyond his technical prowess, Azharul Bhai is an excellent communicator and a true team player. If you are looking for a Senior PHP/Laravel developer who is technically gifted and dedicated to producing the highest quality work, I highly recommend Azharul Bhai.</div>
+                </div>
+                <!-- Kartic Gharami -->
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">
+                        <div class="avatar-circle">KG</div>
+                        <div class="avatar-info">
+                            <div class="testimonial-author">Kartic Gharami</div>
+                            <div class="testimonial-title">Senior Software Engineer @ MVI Solutions</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">I strongly recommend Md. Azharul Islam as a Sr. Software Engineer. He is constantly producing top-notch code and has exceptional technical abilities. He works well with others and is always eager to work together to find solutions to challenging issues. He is a vital addition to any technical team because of his commitment to learning and keeping up with current market trends. He will do well in any Software Engineer position he takes on; I have no question about it.</div>
+                </div>
+                <!-- Masum Billah -->
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">
+                        <div class="avatar-circle">MB</div>
+                        <div class="avatar-info">
+                            <div class="testimonial-author">Masum Billah</div>
+                            <div class="testimonial-title">Senior Android Engineer</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">I highly recommend Md. Azharul Islam as a PHP developer. He is an exceptional team player who consistently communicates and collaborates effectively with his colleagues to achieve project goals. He has excellent problem-solving abilities, strong attention to detail, and can work well under pressure. His technical knowledge and expertise in PHP programming are second to none. Overall, Md. Azharul Islam would be a valuable addition to any team.</div>
+                </div>
+                <!-- Mohammad Abdul Karim -->
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">
+                        <div class="avatar-circle">MK</div>
+                        <div class="avatar-info">
+                            <div class="testimonial-author">Mohammad Abdul Karim</div>
+                            <div class="testimonial-title">IT Consultant – SPFMS (iBAS++)</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">I had the pleasure of working with Azharul Islam for 1.5 years and was consistently impressed by his PHP programming knowledge and competence. He has a deep knowledge of this programming language and its subtleties, and he was able to apply solutions to complicated challenges swiftly and efficiently. Azharul Islam is an excellent communicator and team player. For any PHP development job, I wholeheartedly recommend Azharul Islam.</div>
+                </div>
+                <!-- Md. Sheikh Nasim -->
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">
+                        <div class="avatar-circle">SN</div>
+                        <div class="avatar-info">
+                            <div class="testimonial-author">Md. Sheikh Nasim</div>
+                            <div class="testimonial-title">Oracle APEX || Oracle EBS || Full-Stack Developer</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">He is very friendly, confident, responsible and skilled. He has excellent ability to take challenge.</div>
+                </div>
+                <!-- Md. Emran Sikder -->
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">
+                        <div class="avatar-circle">ES</div>
+                        <div class="avatar-info">
+                            <div class="testimonial-author">Md. Emran Sikder</div>
+                            <div class="testimonial-title">Sr. Software Engineer | Python | Django | React</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">He is very hardworking and extremely talented person. He is good at web development and also has a lot of deep technical background.</div>
+                </div>
+                <!-- Aminul Huq -->
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">
+                        <div class="avatar-circle">AH</div>
+                        <div class="avatar-info">
+                            <div class="testimonial-author">Aminul Huq</div>
+                            <div class="testimonial-title">Senior Programmer at ATI Limited</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">Md. Azharul Islam is a very good software engineer. We worked together. He worked on very complex projects and successfully finished multiple projects. He understands very fast and his concept is very clear on programming. Also he is a very good team player.</div>
+                </div>
+                <!-- A. K. M. Nurul Hoque -->
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">
+                        <div class="avatar-circle">NH</div>
+                        <div class="avatar-info">
+                            <div class="testimonial-author">A. K. M. Nurul Hoque</div>
+                            <div class="testimonial-title">Sr. Software Engineer at ADN Diginet Ltd</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">I'm really happy to work with Azharul. He is a good team member. He is so dedicated to his work. At the same time, he is loyal, persevering, punctual, and can meet the committed deadline. Definitely recommend him.</div>
+                </div>
+                <!-- MD Tanveruzzaman -->
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">
+                        <div class="avatar-circle">TZ</div>
+                        <div class="avatar-info">
+                            <div class="testimonial-author">MD Tanveruzzaman</div>
+                            <div class="testimonial-title">Senior Staff Software Engineer</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">Mr. Azharul Islam is a great person to work with. He had worked with me in a project where I got to know about him. Very quick learner and a team person. Definitely recommend.</div>
+                </div>
+                <!-- Md Rakib Mostofa -->
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">
+                        <div class="avatar-circle">RM</div>
+                        <div class="avatar-info">
+                            <div class="testimonial-author">Md Rakib Mostofa</div>
+                            <div class="testimonial-title">Frontend Developer | React • React Native • Next.js</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">His programming concept is very clear. He learns new technology within a short time. He worked as a good team member. I am really happy to work with him.</div>
+                </div>
+                <!-- Rubiyat Hasan Siddik -->
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">
+                        <div class="avatar-circle">RS</div>
+                        <div class="avatar-info">
+                            <div class="testimonial-author">Rubiyat Hasan Siddik</div>
+                            <div class="testimonial-title">Senior Backend Engineer | Java, Spring Boot, AWS</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">It was a pleasure working with Md. Azharul Islam for the past 1 year at ATI Limited. He is a person with strong ownership and driving for results all the time. He sees and can address everything from the big picture to the details. He is creative, energetic, solutions oriented and highly motivated with great communication skills. He is an asset to any company that he's with.</div>
+                </div>
+            </div>
+        </section>
 
         <!-- Contact Section -->
-        <div class="section">
-            <h2 class="section-title">Let's Connect</h2>
-            <div class="contact-links">
-                <a href="https://github.com/azharul-ai" target="_blank" class="contact-btn">🐙 GitHub: azharul-ai</a>
-                <a href="https://www.linkedin.com/in/imazi/" target="_blank" class="contact-btn">🔗 LinkedIn: imazi</a>
-                <a href="#" class="contact-btn">📧 Email (Contact form coming soon)</a>
+        <section id="contact" class="section">
+            <div class="contact-section">
+                <h2>Let's Work Together</h2>
+                <p>Open to Staff Software Engineer, Senior Software Engineer, Full Stack Developer, and Tech Lead roles</p>
+                <div class="contact-buttons">
+                    <a href="https://github.com/azharul-ai" target="_blank" class="contact-btn"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://www.linkedin.com/in/imazi" target="_blank" class="contact-btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="#" class="contact-btn" id="email-btn"><i class="fas fa-envelope"></i> Email Me</a>
+                </div>
             </div>
-        </div>
+        </section>
     </div>
 
-    <div class="footer">
-        <div class="container">
-            <p>© 2025 Md. Azharul Islam. All rights reserved. | Built with 💻 for the developer community</p>
-        </div>
-    </div>
+    <footer class="footer">
+        <p>© 2026 Md. Azharul Islam. Built with <i class="fas fa-heart" style="color: #f5576c;"></i> for recruiters | <i class="fab fa-github"></i> azharul-ai</p>
+    </footer>
 
     <script>
+        // Typing Animation
+        const titles = ["Senior Software Engineer", "PHP & Laravel Expert", "React & Node.js Developer", "Full Stack Architect"];
+        let idx = 0, charIdx = 0, isDeleting = false;
+        const typedEl = document.getElementById('typed-text');
+        function typeEffect() {
+            const current = titles[idx];
+            if (isDeleting) { typedEl.textContent = current.substring(0, charIdx - 1); charIdx--; }
+            else { typedEl.textContent = current.substring(0, charIdx + 1); charIdx++; }
+            if (!isDeleting && charIdx === current.length) { isDeleting = true; setTimeout(typeEffect, 2000); return; }
+            if (isDeleting && charIdx === 0) { isDeleting = false; idx = (idx + 1) % titles.length; setTimeout(typeEffect, 500); return; }
+            setTimeout(typeEffect, isDeleting ? 50 : 100);
+        }
+        typeEffect();
+
         function toggleTheme() {
             const html = document.documentElement;
-            const currentTheme = html.getAttribute('data-theme');
-            if (currentTheme === 'dark') {
-                html.removeAttribute('data-theme');
-                localStorage.setItem('theme', 'light');
-            } else {
-                html.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-            }
+            const current = html.getAttribute('data-theme');
+            if (current === 'dark') { html.removeAttribute('data-theme'); localStorage.setItem('theme', 'light'); }
+            else { html.setAttribute('data-theme', 'dark'); localStorage.setItem('theme', 'dark'); }
         }
+        if (localStorage.getItem('theme') === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
 
-        // Load saved theme
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-            document.documentElement.setAttribute('data-theme', 'dark');
-        }
+        document.querySelectorAll('.nav-links a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+        document.getElementById('resume-btn')?.addEventListener('click', (e) => { e.preventDefault(); alert('📄 Resume PDF available upon request. Connect on LinkedIn!'); });
+        document.getElementById('email-btn')?.addEventListener('click', (e) => { e.preventDefault(); alert('📧 Reach me at: azharul.ece.hstu@gmail.com'); });
     </script>
 </body>
 </html>
