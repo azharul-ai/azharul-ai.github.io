@@ -626,6 +626,83 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
 
+        /* Contact Form Styles */
+        .contact-form {
+            max-width: 600px;
+            margin: 30px auto 0;
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+
+        .submit-btn {
+            background: white;
+            color: var(--accent-dark);
+            padding: 14px 32px;
+            border-radius: 40px;
+            border: none;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-status {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .form-status.success {
+            background: rgba(34, 197, 94, 0.1);
+            color: #22c55e;
+            border: 1px solid #22c55e;
+        }
+
+        .form-status.error {
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+            border: 1px solid #ef4444;
+        }
+
         /* Footer */
         .footer {
             text-align: center;
@@ -1184,15 +1261,41 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
+        <!-- Contact Section with Working Form -->
         <section id="contact" class="section">
             <div class="contact-section">
                 <h2>Let's Work Together</h2>
-                <p>Open to Staff Software Engineer, Senior Software Engineer, Full Stack Developer, and Tech Lead roles</p>
+                <p>Open to Staff/Lead/Senior Software Engineer, Full Stack Developer, and Tech Lead roles</p>
+                
+                <!-- Contact Form -->
+                <form id="contact-form" action="https://formspree.io/f/xeevpqda" method="POST" class="contact-form">
+                    <!-- Formspree required hidden input -->
+                    <input type="hidden" name="_subject" value="New Portfolio Message from Azharul's Site">
+                    
+                    <!-- Optional: Redirect after success -->
+                    <input type="hidden" name="_next" value="https://azharul-ai.github.io?success=true">
+                    
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="_subject" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" rows="5" placeholder="Your Message..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn" id="submit-btn">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                    <div id="form-status" class="form-status"></div>
+                </form>
+                
                 <div class="contact-buttons">
                     <a href="https://github.com/azharul-ai" target="_blank" class="contact-btn"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="https://www.linkedin.com/in/imazi" target="_blank" class="contact-btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                    <a href="#" class="contact-btn" id="email-btn"><i class="fas fa-envelope"></i> Email Me</a>
+                    <a href="https://www.linkedin.com/in/imazi/" target="_blank" class="contact-btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
                 </div>
             </div>
         </section>
@@ -1234,6 +1337,70 @@
         });
         document.getElementById('resume-btn')?.addEventListener('click', (e) => { e.preventDefault(); alert('📄 Resume PDF available upon request. Connect on LinkedIn!'); });
         document.getElementById('email-btn')?.addEventListener('click', (e) => { e.preventDefault(); alert('📧 Reach me at: azharul.ece.hstu@gmail.com'); });
+    </script>
+
+    <script>
+        // Contact Form AJAX Submission
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+        const submitBtn = document.getElementById('submit-btn');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                // Show loading state
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                formStatus.innerHTML = '';
+                
+                // Collect form data
+                const formData = new FormData(contactForm);
+                
+                try {
+                    const response = await fetch(contactForm.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    
+                    if (response.ok) {
+                        // Success
+                        formStatus.innerHTML = '✅ Message sent successfully! I\'ll get back to you soon.';
+                        formStatus.className = 'form-status success';
+                        contactForm.reset();
+                        
+                        // Optional: Track with Google Analytics
+                        if (typeof gtag !== 'undefined') {
+                            gtag('event', 'form_submit', {
+                                'event_category': 'contact',
+                                'event_label': 'portfolio_contact'
+                            });
+                        }
+                    } else {
+                        // Error
+                        const errorData = await response.json();
+                        throw new Error(errorData.error || 'Something went wrong');
+                    }
+                } catch (error) {
+                    formStatus.innerHTML = '❌ Oops! Something went wrong. Please email me directly at azharul.cehstu@gmail.com';
+                    formStatus.className = 'form-status error';
+                    console.error('Form submission error:', error);
+                } finally {
+                    // Reset button
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+                    
+                    // Auto-hide status after 5 seconds
+                    setTimeout(() => {
+                        formStatus.innerHTML = '';
+                        formStatus.className = 'form-status';
+                    }, 5000);
+                }
+            });
+        }
     </script>
 </body>
 </html>
