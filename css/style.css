@@ -257,8 +257,8 @@ body {
 }
 
 .profile-circle {
-    width: 350px;
-    height: 350px;
+    width: 450px;
+    height: 450px;
     border-radius: 50%;
     margin: 0 auto;
     animation: pulse 3s infinite;
@@ -722,5 +722,454 @@ body {
 @media print {
     .navbar, .theme-toggle, .hero-buttons, .contact-buttons, .animated-bg {
         display: none;
+    }
+}
+
+/* Tech Match Section - For Recruiters */
+.tech-match-section {
+    padding: 40px 0;
+}
+
+.tech-match-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 2px solid var(--accent);
+    border-radius: 28px;
+    padding: 35px;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+    transition: all 0.3s ease;
+}
+
+.tech-match-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px var(--accent-glow);
+}
+
+.tech-match-badge {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 40px;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.tech-match-card h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: var(--text-primary);
+}
+
+.primary-stack, .secondary-stack {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    text-align: left;
+    margin-bottom: 25px;
+    padding: 15px;
+    background: var(--bg-secondary);
+    border-radius: 20px;
+}
+
+.stack-icon {
+    font-size: 32px;
+    min-width: 50px;
+    text-align: center;
+}
+
+.stack-text {
+    flex: 1;
+}
+
+.stack-label {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.stack-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.primary-badge {
+    background: var(--gradient-1);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.secondary-badge {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 13px;
+}
+
+.cta-line {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+}
+
+.cta-line p {
+    margin-bottom: 15px;
+    color: var(--text-secondary);
+}
+
+.cta-line strong {
+    color: var(--accent);
+}
+
+.tech-cta-btn {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    padding: 12px 28px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.tech-cta-btn:hover {
+    background: var(--accent-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px var(--accent-glow);
+}
+
+.not-for-me {
+    margin-top: 20px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    opacity: 0.8;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .primary-stack, .secondary-stack {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .stack-items {
+        justify-content: center;
+    }
+    .tech-match-card h2 {
+        font-size: 24px;
+    }
+}
+
+/* SDLC Banner */
+.sdlc-banner {
+    text-align: center;
+    background: linear-gradient(135deg, var(--accent-glow), transparent);
+    padding: 12px 20px;
+    border-radius: 50px;
+    margin-bottom: 35px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    display: inline-block;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Skills Categories Grid */
+.skills-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+.skill-category {
+    background: var(--card-bg);
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.skill-category:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent);
+    box-shadow: var(--shadow-md);
+}
+
+.category-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--border);
+    flex-wrap: wrap;
+}
+
+.category-icon {
+    font-size: 28px;
+}
+
+.category-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary);
+    flex: 1;
+}
+
+.category-years {
+    font-size: 12px;
+    background: var(--accent);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 30px;
+    font-weight: 500;
+}
+
+.category-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.category-skills .skill-badge-core,
+.category-skills .skill-badge {
+    padding: 6px 14px;
+    border-radius: 25px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.skill-badge-core {
+    background: var(--gradient-1);
+    color: white;
+}
+
+.skill-badge {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .skills-categories {
+        grid-template-columns: 1fr;
+    }
+    .category-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    .category-skills {
+        justify-content: center;
+    }
+    .sdlc-banner {
+        font-size: 11px;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+/* ============================================
+   CENTERED SDLC BANNER
+   ============================================ */
+.sdlc-banner {
+    text-align: center;
+    background: linear-gradient(135deg, var(--accent-glow), transparent);
+    padding: 14px 24px;
+    border-radius: 60px;
+    margin-bottom: 40px;
+    border: 1px solid var(--accent);
+    display: inline-block;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 2px 10px var(--accent-glow);
+}
+
+.sdlc-banner span {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.3px;
+}
+
+/* Mobile responsive for SDLC banner */
+@media (max-width: 768px) {
+    .sdlc-banner {
+        padding: 10px 16px;
+        width: 100%;
+        text-align: center;
+    }
+    .sdlc-banner span {
+        font-size: 11px;
+    }
+}
+
+/* ============================================
+   SECONDARY BADGE STYLES
+   ============================================ */
+.skill-badge-secondary {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.skill-badge-secondary:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--bg-primary);
+    box-shadow: 0 2px 8px var(--accent-glow);
+}
+
+/* ============================================
+   CORE BADGE STYLES (For reference)
+   ============================================ */
+.skill-badge-core {
+    background: var(--gradient-1);
+    color: white;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    box-shadow: 0 2px 8px var(--accent-glow);
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.skill-badge-core:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--accent-glow);
+}
+
+/* ============================================
+   SKILLS CATEGORIES GRID (Optional but recommended)
+   ============================================ */
+.skills-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.skill-category {
+    background: var(--card-bg);
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.skill-category:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent);
+    box-shadow: var(--shadow-md);
+}
+
+.category-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--border);
+    flex-wrap: wrap;
+}
+
+.category-icon {
+    font-size: 28px;
+}
+
+.category-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary);
+    flex: 1;
+}
+
+.category-years {
+    font-size: 12px;
+    background: var(--accent);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 30px;
+    font-weight: 500;
+}
+
+.category-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Mobile responsive for categories */
+@media (max-width: 768px) {
+    .skills-categories {
+        grid-template-columns: 1fr;
+    }
+    .category-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    .category-skills {
+        justify-content: center;
+    }
+}
+
+.view-details-link {
+    margin-top: 12px;
+    text-align: right;
+}
+
+.details-link {
+    font-size: 12px;
+    color: var(--accent);
+    text-decoration: none;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.details-link:hover {
+    opacity: 1;
+    transform: translateX(3px);
+}
+
+@media (max-width: 768px) {
+    .view-details-link {
+        text-align: center;
+        margin-top: 10px;
+    }
+    .details-link {
+        font-size: 11px;
     }
 }
