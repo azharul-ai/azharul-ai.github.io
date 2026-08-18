@@ -6,12 +6,5 @@
         <description>Practical notes about software development, architecture, AI-assisted workflows, and career growth.</description>
         <language>en</language>
         <atom:link href="https://azharul-ai.github.io/feed.xml" rel="self" type="application/rss+xml" />
-        <item>
-            <title>Why I’m sharing engineering notes</title>
-            <link>https://azharul-ai.github.io/blog/posts/why-i-am-sharing-engineering-notes.html</link>
-            <guid isPermaLink="true">https://azharul-ai.github.io/blog/posts/why-i-am-sharing-engineering-notes.html</guid>
-            <pubDate>Tue, 18 Aug 2026 00:00:00 +0600</pubDate>
-            <description>A short introduction to this blog, the subjects I plan to explore, and the standard I want each article to meet.</description>
-        </item>
     </channel>
 </rss>
