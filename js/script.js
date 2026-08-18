@@ -17,6 +17,8 @@ let idx = 0, charIdx = 0, isDeleting = false;
 const typedEl = document.getElementById('typed-text');
 
 function typeEffect() {
+    if (!typedEl) return;
+
     const current = titles[idx];
     if (isDeleting) { 
         typedEl.textContent = current.substring(0, charIdx - 1); 
@@ -38,7 +40,7 @@ function typeEffect() {
     }
     setTimeout(typeEffect, isDeleting ? 50 : 100);
 }
-typeEffect();
+if (typedEl) typeEffect();
 
 // ============================================
 // THEME TOGGLE (Dark/Light Mode)
@@ -61,8 +63,11 @@ if (localStorage.getItem('theme') === 'dark') document.documentElement.setAttrib
 // ============================================
 document.querySelectorAll('.nav-links a').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (!href || !href.startsWith('#')) return;
+
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const target = document.querySelector(href);
         if (target) target.scrollIntoView({ behavior: 'smooth' });
     });
 });
