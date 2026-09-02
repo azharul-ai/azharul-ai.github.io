@@ -45,6 +45,18 @@ function validateHtmlFile(htmlFile) {
         errors.push(`${relativeFile}: missing a meta description`);
     }
 
+    if (relativeFile.replaceAll('\\', '/').startsWith('blog/posts/')) {
+        if (!/<link\s+rel=["']canonical["'][^>]+href=["']https:\/\/azharul-ai\.github\.io\/blog\/posts\//i.test(source)) {
+            errors.push(`${relativeFile}: missing an absolute article canonical URL`);
+        }
+        if (!/<meta\s+property=["']og:type["'][^>]+content=["']article["']/i.test(source)) {
+            errors.push(`${relativeFile}: missing article Open Graph metadata`);
+        }
+        if (!/"datePublished"\s*:\s*"\d{4}-\d{2}-\d{2}T/i.test(source)) {
+            errors.push(`${relativeFile}: missing structured publication date`);
+        }
+    }
+
     const referencePattern = /(?:href|src)=["']([^"']+)["']/gi;
     for (const match of source.matchAll(referencePattern)) {
         const reference = match[1];

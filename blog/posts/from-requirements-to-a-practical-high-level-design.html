@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A practical, repeatable way to turn software requirements into a high-level design with clear boundaries, data ownership, failure paths, and trade-offs.">
+    <meta name="author" content="Md. Azharul Islam">
+    <link rel="canonical" href="https://azharul-ai.github.io/blog/posts/from-requirements-to-a-practical-high-level-design.html">
+    <link rel="alternate" type="application/rss+xml" title="Md. Azharul Islam - Engineering Notes" href="https://azharul-ai.github.io/feed.xml">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="From requirements to a practical high-level design">
+    <meta property="og:description" content="Turn unclear requirements into design decisions a team can discuss, test, and operate.">
+    <meta property="og:url" content="https://azharul-ai.github.io/blog/posts/from-requirements-to-a-practical-high-level-design.html">
+    <meta property="og:image" content="https://azharul-ai.github.io/images/blog/hld-requirements-to-design.png">
+    <meta property="article:published_time" content="2026-09-02T20:30:00+06:00">
+    <meta property="article:author" content="Md. Azharul Islam">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="From requirements to a practical high-level design">
+    <meta name="twitter:description" content="A practical guide to HLD boundaries, flows, failure behavior, and trade-offs.">
+    <meta name="twitter:image" content="https://azharul-ai.github.io/images/blog/hld-requirements-to-design.png">
+    <title>From requirements to a practical high-level design | Md. Azharul Islam</title>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "From requirements to a practical high-level design",
+        "description": "A practical, repeatable way to turn software requirements into a high-level design with clear boundaries, data ownership, failure paths, and trade-offs.",
+        "image": "https://azharul-ai.github.io/images/blog/hld-requirements-to-design.png",
+        "datePublished": "2026-09-02T20:30:00+06:00",
+        "dateModified": "2026-09-02T20:30:00+06:00",
+        "author": { "@type": "Person", "name": "Md. Azharul Islam" },
+        "mainEntityOfPage": "https://azharul-ai.github.io/blog/posts/from-requirements-to-a-practical-high-level-design.html"
+    }
+    </script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KF1Z0ENSP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-3KF1Z0ENSP');
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/blog.css">
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="animated-bg" aria-hidden="true"><span></span><span></span><span></span></div>
+
+    <nav class="navbar" aria-label="Primary navigation">
+        <div class="nav-container">
+            <a class="logo" href="../../">Azharul</a>
+            <div class="nav-links">
+                <a href="../../">Portfolio</a>
+                <a href="../" aria-current="page">Blog</a>
+                <a href="../../#contact">Contact</a>
+            </div>
+            <button class="theme-toggle" type="button" onclick="toggleTheme()">🌓 Dark/Light</button>
+        </div>
+    </nav>
+
+    <main id="main-content" class="article-shell">
+        <article>
+            <header class="article-header">
+                <div class="eyebrow">System design · HLD</div>
+                <h1>From requirements to a practical high-level design</h1>
+                <p class="article-deck">A useful HLD is not a collection of impressive boxes. It is a bridge between requirements and decisions.</p>
+                <div class="article-meta">
+                    <span>By Md. Azharul Islam</span>
+                    <time datetime="2026-09-02T20:30:00+06:00">September 2, 2026</time>
+                    <span>7 min read</span>
+                </div>
+            </header>
+
+            <div class="article-content">
+                <h2>The use case and constraints</h2>
+                <p>A high-level design is useful when it turns unclear requirements into decisions that a team can discuss. It is not useful when it is only a collection of boxes with impressive labels. The goal is not to predict every class or database column. The goal is to agree on the shape of the solution before implementation makes important decisions expensive to change.</p>
+                <p>This note describes a repeatable way to move from requirements to a practical HLD without overdesigning the system.</p>
+
+                <div class="article-callout"><strong>Guiding principle:</strong> Connect every architectural decision to an outcome, quality requirement, constraint, or known risk.</div>
+
+                <figure class="article-diagram">
+                    <img src="../../images/blog/hld-requirements-to-design.svg" alt="A high-level design process connecting requirements to decisions, components, data flows, and risk checks." width="1200" height="630">
+                    <figcaption>A practical HLD makes the reasoning behind the architecture visible.</figcaption>
+                </figure>
+
+                <h2>Begin with the outcome</h2>
+                <p>The first question is not which technology to use. It is what outcome the system must produce.</p>
+                <p>Suppose the requirement says that customers can submit orders and receive confirmation. That sentence is a starting point rather than a design. Useful follow-up questions include:</p>
+                <ul>
+                    <li>Who can submit an order?</li>
+                    <li>What information makes an order valid?</li>
+                    <li>Must confirmation be immediate?</li>
+                    <li>What happens if payment or inventory is unavailable?</li>
+                    <li>Can the same request be submitted twice?</li>
+                    <li>Which actions must be traceable later?</li>
+                </ul>
+                <p>These questions expose business rules and failure conditions. They also prevent the design from being driven by an assumed happy path.</p>
+
+                <h2>Identify the quality attributes</h2>
+                <p>Functional requirements describe what the system does. Quality attributes describe how well it must do it. They often influence architecture more strongly than the feature list.</p>
+                <p>Examples include availability, response time, throughput, security, auditability, consistency, and recovery time. A service handling a few internal requests each hour needs a different design from a public API handling thousands of requests each second. A financial operation may prefer strong consistency while an analytics dashboard may accept slightly delayed data.</p>
+                <p>Write the important qualities in measurable language where possible. “The system should be fast” is difficult to design for. “Most requests should complete within 500 milliseconds under the expected load” gives the team something concrete to examine and test.</p>
+
+                <h2>Record constraints before choosing components</h2>
+                <p>Every design operates inside constraints. The team may need to use an existing identity provider or database. Data may need to remain in a particular region. The organization may already operate a message broker. Delivery time and team experience are also real constraints.</p>
+                <p>Constraints should be documented rather than hidden inside a diagram. This prevents a future reviewer from treating a deliberate compromise as an accidental mistake.</p>
+                <p>It also helps separate facts from preferences. “The platform supports PostgreSQL” is a constraint. “I prefer a document database” is a preference and still needs justification.</p>
+
+                <h2>Define boundaries and responsibilities</h2>
+                <p>Now identify the major responsibilities in the system. For an order flow they might include accepting requests, validating orders, reserving inventory, processing payment, persisting state, and notifying the customer.</p>
+                <p>Do not immediately turn every responsibility into a separate microservice. First decide which responsibilities need independent ownership, scaling, security, or deployment. A modular application may be the simplest good solution. Service boundaries should follow meaningful operational or business boundaries rather than individual database tables.</p>
+                <p>For each component describe:</p>
+                <ul>
+                    <li>What it owns</li>
+                    <li>What requests it accepts</li>
+                    <li>What data it reads or changes</li>
+                    <li>Which dependencies it calls</li>
+                    <li>What it returns when successful</li>
+                    <li>How it reports failure</li>
+                </ul>
+                <p>This short description is usually more valuable than a box name alone.</p>
+
+                <h2>Walk through the flow end to end</h2>
+                <p>A component diagram shows structure but not time. Add one or two sequence flows for the most important scenarios. Include the normal path and at least one failure path.</p>
+                <p>For example, an order request might be accepted synchronously and placed on a queue for processing. The API can return a tracking identifier while a worker completes inventory and payment steps. This design changes the user experience and creates new responsibilities: request status, retries, duplicate protection, and failure visibility.</p>
+                <p>Drawing the flow makes those consequences visible. It also reveals where timeouts and partial failures can occur.</p>
+
+                <div class="flow-example" role="img" aria-label="Order processing flow from client through an API and queue to a worker, inventory, payment, and notification services">
+                    <div>Client</div><span aria-hidden="true">→</span><div>Order API</div><span aria-hidden="true">→</span><div>Queue</div><span aria-hidden="true">→</span><div>Worker</div>
+                    <span class="flow-branches" aria-hidden="true">↳</span><div class="flow-targets">Inventory · Payment · Notification</div>
+                </div>
+
+                <h2>Make data ownership explicit</h2>
+                <p>An HLD should identify the important data stores and the component responsible for changing each type of data. Shared databases can create hidden coupling because several components can modify the same records without a clear contract.</p>
+                <p>Also document consistency expectations. If an order is confirmed before a reporting database is updated, that delay may be acceptable. If inventory can be oversold during the delay, it may not be acceptable. The design should say which trade-off is intended.</p>
+                <p>Avoid specifying every table at this stage. Capture the main entities, ownership, retention requirements, and movement of sensitive data.</p>
+
+                <h2>Consider security and operational trade-offs</h2>
+                <p>Reliable systems are defined as much by failure behavior as by successful behavior. Ask what happens when every external dependency is slow, unavailable, or returns an uncertain result.</p>
+                <p>Important decisions include timeout limits, retry policies, idempotency, dead-letter handling, compensation, and operator alerts. Retrying every failure is dangerous. A retry can duplicate an operation and can increase load on a struggling dependency. The design must distinguish temporary failures from permanent validation problems.</p>
+                <p>Operational visibility belongs in the HLD too. Logs, metrics, traces, and correlation identifiers are not decorations added after implementation. They are part of making the system supportable.</p>
+
+                <h2>Capture decisions and unresolved risks</h2>
+                <p>A practical HLD does not pretend that every answer is known. Keep a small decision list containing the choice, reason, alternatives, and consequences. Keep a separate list of open questions and risks with an owner or next action.</p>
+                <p>This makes review more productive. Reviewers can challenge an actual decision instead of guessing why a technology appeared in the diagram.</p>
+
+                <h2>Questions before implementation</h2>
+                <ul class="checklist">
+                    <li>Does it connect components to real requirements?</li>
+                    <li>Are the most important quality attributes measurable?</li>
+                    <li>Are system boundaries and data owners clear?</li>
+                    <li>Are normal and failure flows shown?</li>
+                    <li>Are security and sensitive data considered?</li>
+                    <li>Are retries and duplicate operations addressed?</li>
+                    <li>Can operators detect and investigate failures?</li>
+                    <li>Are major trade-offs and unanswered questions recorded?</li>
+                </ul>
+                <p>A good high-level design creates shared understanding. It should be detailed enough to expose costly assumptions and simple enough that developers and stakeholders can discuss it together. The best sign of success is not the number of boxes. It is that the team knows what it is building and why.</p>
+
+                <h2>What to remember</h2>
+                <ul>
+                    <li>Start with outcomes and measurable qualities rather than technology.</li>
+                    <li>Make ownership, failure behavior, and trade-offs visible.</li>
+                    <li>Keep the design simple enough for the whole team to review.</li>
+                </ul>
+
+                <div class="article-footer-card">
+                    <strong>More practical engineering notes</strong>
+                    <p>Follow the RSS feed to receive future articles after they are reviewed and published.</p>
+                    <a class="btn-outline" href="../../feed.xml">Open RSS feed</a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer"><p>© 2026 Md. Azharul Islam. Practical engineering notes, reviewed before publishing.</p></footer>
+    <script src="../../js/script.js"></script>
+</body>
+</html>
