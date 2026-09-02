@@ -6,5 +6,13 @@
         <description>Practical notes about software development, architecture, AI-assisted workflows, and career growth.</description>
         <language>en</language>
         <atom:link href="https://azharul-ai.github.io/feed.xml" rel="self" type="application/rss+xml" />
+        <lastBuildDate>Wed, 02 Sep 2026 14:30:00 GMT</lastBuildDate>
+        <item>
+            <title>From requirements to a practical high-level design</title>
+            <link>https://azharul-ai.github.io/blog/posts/from-requirements-to-a-practical-high-level-design.html</link>
+            <guid isPermaLink="true">https://azharul-ai.github.io/blog/posts/from-requirements-to-a-practical-high-level-design.html</guid>
+            <pubDate>Wed, 02 Sep 2026 14:30:00 GMT</pubDate>
+            <description>A practical, repeatable way to turn software requirements into a high-level design with clear boundaries, data ownership, failure paths, and trade-offs.</description>
+        </item>
     </channel>
 </rss>
