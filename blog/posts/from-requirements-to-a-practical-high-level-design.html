@@ -84,7 +84,48 @@
                 <div class="article-callout"><strong>Guiding principle:</strong> Connect every architectural decision to an outcome, quality requirement, constraint, or known risk.</div>
 
                 <figure class="article-diagram">
-                    <img src="../../images/blog/hld-requirements-to-design.svg" alt="A high-level design process connecting requirements to decisions, components, data flows, and risk checks." width="1200" height="630">
+                    <ol class="hld-process" aria-label="A high-level design process from requirements to review">
+                        <li>
+                            <span class="process-number">01</span>
+                            <h3>Outcomes</h3>
+                            <ul>
+                                <li>Business goal</li>
+                                <li>Users and rules</li>
+                                <li>Failure cases</li>
+                                <li>Success measures</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="process-number">02</span>
+                            <h3>Drivers</h3>
+                            <ul>
+                                <li>Quality attributes</li>
+                                <li>Constraints</li>
+                                <li>Load and latency</li>
+                                <li>Security needs</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="process-number">03</span>
+                            <h3>Design</h3>
+                            <ul>
+                                <li>Responsibilities</li>
+                                <li>Boundaries</li>
+                                <li>Data ownership</li>
+                                <li>End-to-end flow</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="process-number">04</span>
+                            <h3>Review</h3>
+                            <ul>
+                                <li>Timeouts and retries</li>
+                                <li>Operational signals</li>
+                                <li>Trade-offs</li>
+                                <li>Open risks</li>
+                            </ul>
+                        </li>
+                    </ol>
                     <figcaption>A practical HLD makes the reasoning behind the architecture visible.</figcaption>
                 </figure>
 
@@ -130,9 +171,41 @@
                 <p>For example, an order request might be accepted synchronously and placed on a queue for processing. The API can return a tracking identifier while a worker completes inventory and payment steps. This design changes the user experience and creates new responsibilities: request status, retries, duplicate protection, and failure visibility.</p>
                 <p>Drawing the flow makes those consequences visible. It also reveals where timeouts and partial failures can occur.</p>
 
-                <div class="flow-example" role="img" aria-label="Order processing flow from client through an API and queue to a worker, inventory, payment, and notification services">
-                    <div>Client</div><span aria-hidden="true">→</span><div>Order API</div><span aria-hidden="true">→</span><div>Queue</div><span aria-hidden="true">→</span><div>Worker</div>
-                    <span class="flow-branches" aria-hidden="true">↳</span><div class="flow-targets">Inventory · Payment · Notification</div>
+                <div class="order-flow" aria-label="Order processing flow from the client through the Order API and queue to a worker, which coordinates inventory, payment, and notification services">
+                    <div class="order-flow-primary">
+                        <div class="flow-node">
+                            <span>Request</span>
+                            <strong>Client</strong>
+                            <small>Submits the order</small>
+                        </div>
+                        <span class="flow-arrow" aria-hidden="true"></span>
+                        <div class="flow-node">
+                            <span>Accept</span>
+                            <strong>Order API</strong>
+                            <small>Validates and returns an ID</small>
+                        </div>
+                        <span class="flow-arrow" aria-hidden="true"></span>
+                        <div class="flow-node">
+                            <span>Buffer</span>
+                            <strong>Queue</strong>
+                            <small>Stores work safely</small>
+                        </div>
+                        <span class="flow-arrow" aria-hidden="true"></span>
+                        <div class="flow-node">
+                            <span>Process</span>
+                            <strong>Worker</strong>
+                            <small>Coordinates the workflow</small>
+                        </div>
+                    </div>
+                    <div class="flow-fanout">
+                        <span aria-hidden="true">↓</span>
+                        <p>The worker calls three focused dependencies</p>
+                    </div>
+                    <div class="flow-services">
+                        <div><strong>Inventory</strong><small>Reserve items</small></div>
+                        <div><strong>Payment</strong><small>Charge safely</small></div>
+                        <div><strong>Notification</strong><small>Send confirmation</small></div>
+                    </div>
                 </div>
 
                 <h2>Make data ownership explicit</h2>
