@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A practical comparison of monolith, modular monolith, and microservices architecture across deployment, ownership, scaling, failures, and operational cost.">
+    <meta name="author" content="Md. Azharul Islam">
+    <link rel="canonical" href="https://azharul-ai.github.io/blog/posts/monolith-modular-monolith-or-microservices.html">
+    <link rel="alternate" type="application/rss+xml" title="Md. Azharul Islam - Engineering Notes" href="https://azharul-ai.github.io/feed.xml">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Monolith, modular monolith, or microservices?">
+    <meta property="og:description" content="Choose an architecture from evidence, team boundaries, and operational needs—not fashion.">
+    <meta property="og:url" content="https://azharul-ai.github.io/blog/posts/monolith-modular-monolith-or-microservices.html">
+    <meta property="og:image" content="https://azharul-ai.github.io/images/blog/monolith-modular-microservices.png">
+    <meta property="article:published_time" content="2026-09-09T20:30:00+06:00">
+    <meta property="article:author" content="Md. Azharul Islam">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Monolith, modular monolith, or microservices?">
+    <meta name="twitter:description" content="A practical architecture comparison for real teams and evolving products.">
+    <meta name="twitter:image" content="https://azharul-ai.github.io/images/blog/monolith-modular-microservices.png">
+    <title>Monolith, modular monolith, or microservices? | Md. Azharul Islam</title>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Monolith, modular monolith, or microservices?",
+        "description": "A practical comparison of monolith, modular monolith, and microservices architecture across deployment, ownership, scaling, failures, and operational cost.",
+        "image": "https://azharul-ai.github.io/images/blog/monolith-modular-microservices.png",
+        "datePublished": "2026-09-09T20:30:00+06:00",
+        "dateModified": "2026-09-09T20:30:00+06:00",
+        "author": { "@type": "Person", "name": "Md. Azharul Islam" },
+        "mainEntityOfPage": "https://azharul-ai.github.io/blog/posts/monolith-modular-monolith-or-microservices.html"
+    }
+    </script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KF1Z0ENSP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-3KF1Z0ENSP');
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/blog.css">
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="animated-bg" aria-hidden="true"><span></span><span></span><span></span></div>
+
+    <nav class="navbar" aria-label="Primary navigation">
+        <div class="nav-container">
+            <a class="logo" href="../../">Azharul</a>
+            <div class="nav-links">
+                <a href="../../">Portfolio</a>
+                <a href="../" aria-current="page">Blog</a>
+                <a href="../../#contact">Contact</a>
+            </div>
+            <button class="theme-toggle" type="button" onclick="toggleTheme()">🌓 Dark/Light</button>
+        </div>
+    </nav>
+
+    <main id="main-content" class="article-shell">
+        <article>
+            <header class="article-header">
+                <div class="eyebrow">System design · Architecture</div>
+                <h1>Monolith, modular monolith, or microservices?</h1>
+                <p class="article-deck">Architecture is not a maturity contest. Choose the simplest option that fits the business boundaries, team structure, scale, and ability to operate it.</p>
+                <div class="article-meta">
+                    <span>By Md. Azharul Islam</span>
+                    <time datetime="2026-09-09T20:30:00+06:00">September 9, 2026</time>
+                    <span>7 min read</span>
+                </div>
+            </header>
+
+            <div class="article-content">
+                <h2>Requirements and scale</h2>
+                <p>Architecture discussions often treat monoliths and microservices as opposing levels of maturity. That framing is misleading. Each option creates different boundaries and operational responsibilities. A small team can build a poor monolith or an unnecessarily complicated collection of services. The architecture label does not guarantee the design quality.</p>
+                <p>The practical question is: which architecture fits the current business boundaries, team structure, scale, and ability to operate distributed systems?</p>
+
+                <h2>Architecture and ownership</h2>
+                <p>A monolith packages the application as one deployable unit. Its modules can still be well designed, but deployment and runtime scaling happen together.</p>
+                <p>A modular monolith remains one deployable application while enforcing internal boundaries. Modules own responsibilities and expose deliberate interfaces instead of sharing everything. This can provide many design benefits associated with services without introducing network communication and distributed deployment.</p>
+                <p>Microservices split the system into independently deployable services. Each service should own a meaningful business capability and its data. This supports independent scaling and delivery, but introduces network failure, eventual consistency, observability, versioned contracts, and more infrastructure.</p>
+                <p>The decision is therefore about boundaries and operations rather than repository count.</p>
+                <p>Four dimensions make the trade-off clearer. A deployment boundary decides what must be released together. A data boundary decides who can change each record. A failure boundary decides whether one unhealthy capability can consume resources needed by others. An ownership boundary decides which team can make changes without coordinating every detail.</p>
+                <p>A monolith combines the deployment boundary but can still enforce data and ownership boundaries in code. Microservices create stronger runtime boundaries only when contracts and data ownership are genuinely independent. Splitting processes without splitting responsibility adds distance rather than autonomy.</p>
+
+                <h2>A practical comparison</h2>
+                <p>The following comparison is a decision aid, not a scorecard. A well-structured monolith can be safer than poorly separated services.</p>
+
+                <div class="architecture-options" aria-label="Comparison of monolith, modular monolith, and microservices">
+                    <section class="architecture-option">
+                        <span class="option-kicker">Simplest operations</span>
+                        <h3>Monolith</h3>
+                        <dl>
+                            <div><dt>Deployment</dt><dd>One unit</dd></div>
+                            <div><dt>Boundaries</dt><dd>Often informal</dd></div>
+                            <div><dt>Data</dt><dd>Commonly shared</dd></div>
+                            <div><dt>Scaling</dt><dd>Whole application</dd></div>
+                            <div><dt>Failure model</dt><dd>Mostly in-process</dd></div>
+                            <div><dt>Operational cost</dt><dd>Lowest</dd></div>
+                        </dl>
+                        <p><strong>Strong fit:</strong> A small product or simple domain.</p>
+                    </section>
+                    <section class="architecture-option architecture-option-featured">
+                        <span class="option-kicker">Practical default</span>
+                        <h3>Modular monolith</h3>
+                        <dl>
+                            <div><dt>Deployment</dt><dd>One unit</dd></div>
+                            <div><dt>Boundaries</dt><dd>Explicit module contracts</dd></div>
+                            <div><dt>Data</dt><dd>Owned by modules</dd></div>
+                            <div><dt>Scaling</dt><dd>Whole application</dd></div>
+                            <div><dt>Failure model</dt><dd>Mostly in-process</dd></div>
+                            <div><dt>Operational cost</dt><dd>Low to moderate</dd></div>
+                        </dl>
+                        <p><strong>Strong fit:</strong> An evolving product with one or a few teams.</p>
+                    </section>
+                    <section class="architecture-option">
+                        <span class="option-kicker">Strongest independence</span>
+                        <h3>Microservices</h3>
+                        <dl>
+                            <div><dt>Deployment</dt><dd>Independent units</dd></div>
+                            <div><dt>Boundaries</dt><dd>Network contracts</dd></div>
+                            <div><dt>Data</dt><dd>Owned by services</dd></div>
+                            <div><dt>Scaling</dt><dd>Selected services</dd></div>
+                            <div><dt>Failure model</dt><dd>Network and partial failures</dd></div>
+                            <div><dt>Operational cost</dt><dd>Highest</dd></div>
+                        </dl>
+                        <p><strong>Strong fit:</strong> Multiple teams with proven independence needs.</p>
+                    </section>
+                </div>
+
+                <p>The modular monolith occupies an important middle ground. It keeps one deployment while making responsibilities and contracts visible. If later evidence supports extracting a capability, an existing module boundary provides a safer starting point.</p>
+
+                <h2>Request and data flow</h2>
+                <p>Consider an early commerce product with catalogue, ordering, payment, and notification features. One small team owns the whole product and releases it together. Traffic is moderate, and there is no demonstrated need to scale payment separately.</p>
+                <p>A modular monolith can give each capability a clear module inside one application. The ordering module cannot update catalogue tables directly. Payment is accessed through a defined application interface. One database may be used initially, but table ownership and transactions remain explicit.</p>
+                <p>Later, the payment capability may need stronger isolation, a separate compliance boundary, and an independent release cycle. That evidence can justify extracting it as a service. The existing module boundary makes extraction safer because callers already use a deliberate contract.</p>
+                <p>Starting with four services on day one would add deployment pipelines, credentials, network calls, and cross-service failure before those costs solve a measured problem.</p>
+                <p>Now imagine the product grows to several teams. Catalogue releases frequently while payment changes slowly under stricter review. Payment traffic follows a different pattern, and failures must not consume ordering resources. Those are concrete extraction signals.</p>
+                <p>Extraction is still not free. The order workflow can no longer rely on one local transaction across payment and inventory. It needs durable state, idempotent messages, and a way to reconcile uncertain outcomes. The HLD should show how those responsibilities change instead of presenting extraction as moving code into another folder.</p>
+                <p>The reverse decision is valid too. If several tiny services always deploy together, share one database, and require coordinated changes, combining them into a modular application can reduce operational cost without losing meaningful business boundaries.</p>
+
+                <h2>Failure and recovery</h2>
+                <p>A service should be extracted when evidence justifies accepting new distributed-system responsibilities—not simply because its code can be placed in another process.</p>
+
+                <div class="extraction-path" aria-label="A modular commerce application evolving to an independently deployed payment service after compliance and release requirements justify extraction">
+                    <section class="system-boundary">
+                        <span>One deployment</span>
+                        <h3>Modular commerce application</h3>
+                        <div class="module-grid">
+                            <div>Catalogue</div>
+                            <div>Ordering</div>
+                            <div>Payment</div>
+                            <div>Notification</div>
+                        </div>
+                    </section>
+                    <div class="extraction-signal">
+                        <span class="extraction-arrow" aria-hidden="true"></span>
+                        <strong>Evidence</strong>
+                        <small>Compliance boundary<br>Independent releases<br>Different scaling need</small>
+                    </div>
+                    <section class="service-boundary">
+                        <span>Independent deployment</span>
+                        <h3>Payment service</h3>
+                        <ul>
+                            <li>Owns payment data</li>
+                            <li>Exposes a versioned contract</li>
+                            <li>Handles retries and idempotency</li>
+                            <li>Can fail independently</li>
+                        </ul>
+                    </section>
+                </div>
+
+                <h2>Trade-offs and alternatives</h2>
+                <ul>
+                    <li>Choosing microservices because large companies use them without sharing their scale or organization.</li>
+                    <li>Calling an application modular while every module reads and changes the same data directly.</li>
+                    <li>Creating services around technical layers such as controllers or repositories instead of business capabilities.</li>
+                    <li>Sharing one database schema between services and assuming they are independent.</li>
+                    <li>Ignoring the cost of tracing, retries, timeouts, deployments, and on-call support.</li>
+                    <li>Keeping a monolith with no internal boundaries until every change affects unrelated features.</li>
+                    <li>Extracting a service before its ownership and contract are understood.</li>
+                </ul>
+                <div class="article-callout"><strong>A costly result:</strong> A distributed monolith has separate deployments and network calls with the tight coupling of one application.</div>
+
+                <h2>Operational readiness checklist</h2>
+                <ol class="checklist numbered-checklist">
+                    <li>How many teams need to deploy independently?</li>
+                    <li>Which business capabilities have stable ownership boundaries?</li>
+                    <li>Is independent scaling based on measurements or expectation?</li>
+                    <li>Can the team operate logs, metrics, traces, alerts, and deployments for many services?</li>
+                    <li>Which transactions currently require strong consistency?</li>
+                    <li>Can module boundaries be enforced inside one application first?</li>
+                    <li>What specific problem would a service extraction solve now?</li>
+                    <li>How will contracts and data ownership be governed?</li>
+                </ol>
+                <p>Choose the simplest option that satisfies known requirements while preserving useful boundaries. Revisit the decision when scale, ownership, regulation, or delivery patterns provide new evidence.</p>
+
+                <h2>Design recommendation</h2>
+                <ul>
+                    <li>A modular monolith is often a strong default for one team and an evolving domain.</li>
+                    <li>Microservices buy independent deployment and scaling by accepting distributed-system costs.</li>
+                    <li>Architecture should evolve from evidence and clear boundaries rather than fashion.</li>
+                </ul>
+
+                <div class="article-footer-card">
+                    <strong>Continue with the HLD series</strong>
+                    <p>Read how to turn requirements into boundaries, flows, risks, and practical design decisions.</p>
+                    <a class="btn-outline" href="from-requirements-to-a-practical-high-level-design.html">Read the previous article</a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer"><p>© 2026 Md. Azharul Islam. Practical engineering notes, reviewed before publishing.</p></footer>
+    <script src="../../js/script.js"></script>
+</body>
+</html>

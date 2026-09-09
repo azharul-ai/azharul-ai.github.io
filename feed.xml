@@ -6,7 +6,14 @@
         <description>Practical notes about software development, architecture, AI-assisted workflows, and career growth.</description>
         <language>en</language>
         <atom:link href="https://azharul-ai.github.io/feed.xml" rel="self" type="application/rss+xml" />
-        <lastBuildDate>Wed, 02 Sep 2026 14:30:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 09 Sep 2026 14:30:00 GMT</lastBuildDate>
+        <item>
+            <title>Monolith, modular monolith, or microservices?</title>
+            <link>https://azharul-ai.github.io/blog/posts/monolith-modular-monolith-or-microservices.html</link>
+            <guid isPermaLink="true">https://azharul-ai.github.io/blog/posts/monolith-modular-monolith-or-microservices.html</guid>
+            <pubDate>Wed, 09 Sep 2026 14:30:00 GMT</pubDate>
+            <description>A practical comparison of architecture options across deployment, ownership, scaling, failures, and operational cost.</description>
+        </item>
         <item>
             <title>From requirements to a practical high-level design</title>
             <link>https://azharul-ai.github.io/blog/posts/from-requirements-to-a-practical-high-level-design.html</link>
