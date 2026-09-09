@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650" role="img" aria-labelledby="title description">
+  <title id="title">Evidence-based payment service extraction</title>
+  <desc id="description">A modular commerce application contains catalogue, ordering, payment, and notification modules. Compliance, independent release, and scaling evidence leads to payment becoming an independent service with its own data, versioned contract, retries, and failure boundary.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071426"/>
+      <stop offset="1" stop-color="#142b48"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#818cf8"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="9" stdDeviation="10" flood-color="#020617" flood-opacity="0.35"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#38bdf8"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="650" rx="30" fill="url(#background)"/>
+  <circle cx="1120" cy="10" r="180" fill="#38bdf8" opacity="0.07"/>
+  <circle cx="60" cy="640" r="190" fill="#818cf8" opacity="0.07"/>
+
+  <text x="55" y="62" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="700">Extract a service when the boundary becomes real</text>
+  <text x="55" y="94" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="17">Start with clear modules. Add a network boundary only when evidence pays for its cost.</text>
+
+  <g filter="url(#shadow)" font-family="Inter, Arial, sans-serif">
+    <rect x="55" y="130" width="520" height="390" rx="24" fill="#0d2038" stroke="#49647f" stroke-width="2" stroke-dasharray="8 7"/>
+    <text x="83" y="169" fill="#7dd3fc" font-size="14" font-weight="800" letter-spacing="1.5">SYSTEM BOUNDARY · ONE DEPLOYMENT</text>
+    <text x="83" y="205" fill="#f8fafc" font-size="23" font-weight="700">Modular commerce application</text>
+
+    <rect x="83" y="239" width="218" height="92" rx="16" fill="#142c49" stroke="#294767"/>
+    <text x="192" y="280" text-anchor="middle" fill="#f8fafc" font-size="18" font-weight="700">Catalogue</text>
+    <text x="192" y="305" text-anchor="middle" fill="#94a3b8" font-size="13">Owns product data</text>
+
+    <rect x="329" y="239" width="218" height="92" rx="16" fill="#142c49" stroke="#294767"/>
+    <text x="438" y="280" text-anchor="middle" fill="#f8fafc" font-size="18" font-weight="700">Ordering</text>
+    <text x="438" y="305" text-anchor="middle" fill="#94a3b8" font-size="13">Coordinates checkout</text>
+
+    <rect x="83" y="359" width="218" height="112" rx="16" fill="#153456" stroke="#38bdf8" stroke-width="2"/>
+    <rect x="103" y="377" width="70" height="24" rx="12" fill="#08243a"/>
+    <text x="138" y="394" text-anchor="middle" fill="#7dd3fc" font-size="11" font-weight="800">CANDIDATE</text>
+    <text x="192" y="428" text-anchor="middle" fill="#f8fafc" font-size="18" font-weight="700">Payment</text>
+    <text x="192" y="453" text-anchor="middle" fill="#94a3b8" font-size="13">Clear module contract</text>
+
+    <rect x="329" y="359" width="218" height="112" rx="16" fill="#142c49" stroke="#294767"/>
+    <text x="438" y="412" text-anchor="middle" fill="#f8fafc" font-size="18" font-weight="700">Notification</text>
+    <text x="438" y="437" text-anchor="middle" fill="#94a3b8" font-size="13">Owns customer messages</text>
+  </g>
+
+  <path d="M 192 472 V 490 C 192 515, 500 515, 560 485 C 600 465, 590 410, 620 380" fill="none" stroke="#38bdf8" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <g font-family="Inter, Arial, sans-serif">
+    <polygon points="690,275 775,355 690,435 605,355" fill="#112b48" stroke="#38bdf8" stroke-width="2" filter="url(#shadow)"/>
+    <text x="690" y="334" text-anchor="middle" fill="#f8fafc" font-size="16" font-weight="700">Evidence</text>
+    <text x="690" y="359" text-anchor="middle" fill="#cbd5e1" font-size="12">Compliance</text>
+    <text x="690" y="379" text-anchor="middle" fill="#cbd5e1" font-size="12">Independent release</text>
+    <text x="690" y="399" text-anchor="middle" fill="#cbd5e1" font-size="12">Different scaling</text>
+  </g>
+
+  <path d="M 778 355 H 839" fill="none" stroke="#38bdf8" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <g filter="url(#shadow)" font-family="Inter, Arial, sans-serif">
+    <rect x="850" y="177" width="295" height="343" rx="24" fill="#122d4c" stroke="#818cf8" stroke-width="2"/>
+    <text x="878" y="216" fill="#a5b4fc" font-size="14" font-weight="800" letter-spacing="1.4">INDEPENDENT BOUNDARY</text>
+    <text x="878" y="255" fill="#f8fafc" font-size="24" font-weight="700">Payment service</text>
+
+    <rect x="878" y="284" width="239" height="55" rx="13" fill="#0d2038" stroke="#294767"/>
+    <circle cx="899" cy="311" r="5" fill="#38bdf8"/>
+    <text x="915" y="317" fill="#e2e8f0" font-size="15">Owns payment data</text>
+
+    <rect x="878" y="351" width="239" height="55" rx="13" fill="#0d2038" stroke="#294767"/>
+    <circle cx="899" cy="378" r="5" fill="#38bdf8"/>
+    <text x="915" y="384" fill="#e2e8f0" font-size="15">Versioned API contract</text>
+
+    <rect x="878" y="418" width="239" height="70" rx="13" fill="#0d2038" stroke="#294767"/>
+    <circle cx="899" cy="449" r="5" fill="#38bdf8"/>
+    <text x="915" y="447" fill="#e2e8f0" font-size="15">Retries and idempotency</text>
+    <text x="915" y="470" fill="#94a3b8" font-size="13">Independent failure handling</text>
+  </g>
+
+  <rect x="55" y="558" width="1090" height="52" rx="14" fill="#0b1d33" stroke="#294767"/>
+  <text x="600" y="590" text-anchor="middle" fill="#e2e8f0" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">The extraction adds a network call, uncertain outcomes, monitoring, and operational ownership.</text>
+</svg>

@@ -92,47 +92,65 @@
                 <h2>A practical comparison</h2>
                 <p>The following comparison is a decision aid, not a scorecard. A well-structured monolith can be safer than poorly separated services.</p>
 
-                <div class="architecture-options" aria-label="Comparison of monolith, modular monolith, and microservices">
-                    <section class="architecture-option">
-                        <span class="option-kicker">Simplest operations</span>
-                        <h3>Monolith</h3>
-                        <dl>
-                            <div><dt>Deployment</dt><dd>One unit</dd></div>
-                            <div><dt>Boundaries</dt><dd>Often informal</dd></div>
-                            <div><dt>Data</dt><dd>Commonly shared</dd></div>
-                            <div><dt>Scaling</dt><dd>Whole application</dd></div>
-                            <div><dt>Failure model</dt><dd>Mostly in-process</dd></div>
-                            <div><dt>Operational cost</dt><dd>Lowest</dd></div>
-                        </dl>
-                        <p><strong>Strong fit:</strong> A small product or simple domain.</p>
-                    </section>
-                    <section class="architecture-option architecture-option-featured">
-                        <span class="option-kicker">Practical default</span>
-                        <h3>Modular monolith</h3>
-                        <dl>
-                            <div><dt>Deployment</dt><dd>One unit</dd></div>
-                            <div><dt>Boundaries</dt><dd>Explicit module contracts</dd></div>
-                            <div><dt>Data</dt><dd>Owned by modules</dd></div>
-                            <div><dt>Scaling</dt><dd>Whole application</dd></div>
-                            <div><dt>Failure model</dt><dd>Mostly in-process</dd></div>
-                            <div><dt>Operational cost</dt><dd>Low to moderate</dd></div>
-                        </dl>
-                        <p><strong>Strong fit:</strong> An evolving product with one or a few teams.</p>
-                    </section>
-                    <section class="architecture-option">
-                        <span class="option-kicker">Strongest independence</span>
-                        <h3>Microservices</h3>
-                        <dl>
-                            <div><dt>Deployment</dt><dd>Independent units</dd></div>
-                            <div><dt>Boundaries</dt><dd>Network contracts</dd></div>
-                            <div><dt>Data</dt><dd>Owned by services</dd></div>
-                            <div><dt>Scaling</dt><dd>Selected services</dd></div>
-                            <div><dt>Failure model</dt><dd>Network and partial failures</dd></div>
-                            <div><dt>Operational cost</dt><dd>Highest</dd></div>
-                        </dl>
-                        <p><strong>Strong fit:</strong> Multiple teams with proven independence needs.</p>
-                    </section>
+                <p class="comparison-table-title" id="architecture-comparison-title">Architecture comparison</p>
+                <div class="comparison-table-shell" role="region" aria-labelledby="architecture-comparison-title" tabindex="0">
+                    <table class="architecture-comparison">
+                        <caption class="visually-hidden">Monolith, modular monolith, and microservices compared by practical decision area</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Decision area</th>
+                                <th scope="col">Monolith</th>
+                                <th scope="col" class="recommended-column">Modular monolith <span>Practical default</span></th>
+                                <th scope="col">Microservices</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Deployment</th>
+                                <td>One unit</td>
+                                <td class="recommended-column">One unit</td>
+                                <td>Independent units</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Boundaries</th>
+                                <td>Optional and often informal</td>
+                                <td class="recommended-column">Explicit module contracts</td>
+                                <td>Service and network contracts</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Data ownership</th>
+                                <td>Commonly shared</td>
+                                <td class="recommended-column">Owned by modules, possibly in one database</td>
+                                <td>Owned by individual services</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Scaling</th>
+                                <td>Scale the whole application</td>
+                                <td class="recommended-column">Scale the whole application</td>
+                                <td>Scale selected services independently</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Failure model</th>
+                                <td>Mostly in-process failures</td>
+                                <td class="recommended-column">Mostly in-process, with clearer isolation</td>
+                                <td>Network, timeout, and partial-failure scenarios</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Operational cost</th>
+                                <td>Lowest</td>
+                                <td class="recommended-column">Low to moderate</td>
+                                <td>Highest</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Strong fit</th>
+                                <td>Small product or simple domain</td>
+                                <td class="recommended-column">Evolving product with one or a few teams</td>
+                                <td>Multiple teams with proven independence needs</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
+                <p class="table-scroll-hint">On a small screen, swipe the table sideways to compare all three options.</p>
 
                 <p>The modular monolith occupies an important middle ground. It keeps one deployment while making responsibilities and contracts visible. If later evidence supports extracting a capability, an existing module boundary provides a safer starting point.</p>
 
@@ -148,33 +166,13 @@
                 <h2>Failure and recovery</h2>
                 <p>A service should be extracted when evidence justifies accepting new distributed-system responsibilities—not simply because its code can be placed in another process.</p>
 
-                <div class="extraction-path" aria-label="A modular commerce application evolving to an independently deployed payment service after compliance and release requirements justify extraction">
-                    <section class="system-boundary">
-                        <span>One deployment</span>
-                        <h3>Modular commerce application</h3>
-                        <div class="module-grid">
-                            <div>Catalogue</div>
-                            <div>Ordering</div>
-                            <div>Payment</div>
-                            <div>Notification</div>
-                        </div>
-                    </section>
-                    <div class="extraction-signal">
-                        <span class="extraction-arrow" aria-hidden="true"></span>
-                        <strong>Evidence</strong>
-                        <small>Compliance boundary<br>Independent releases<br>Different scaling need</small>
-                    </div>
-                    <section class="service-boundary">
-                        <span>Independent deployment</span>
-                        <h3>Payment service</h3>
-                        <ul>
-                            <li>Owns payment data</li>
-                            <li>Exposes a versioned contract</li>
-                            <li>Handles retries and idempotency</li>
-                            <li>Can fail independently</li>
-                        </ul>
-                    </section>
-                </div>
+                <figure class="recovery-diagram">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="../../images/blog/payment-service-extraction-mobile.svg">
+                        <img src="../../images/blog/payment-service-extraction.svg" alt="Architecture diagram showing a modular commerce application with catalogue, ordering, payment, and notification modules. Evidence from compliance, independent releases, and scaling leads to extracting payment into an independent service with its own data and contract." width="1200" height="650">
+                    </picture>
+                    <figcaption>Extract a capability only when evidence justifies the additional network and operational responsibilities.</figcaption>
+                </figure>
 
                 <h2>Trade-offs and alternatives</h2>
                 <ul>
