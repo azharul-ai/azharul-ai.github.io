@@ -394,157 +394,137 @@
     background: var(--bg-secondary);
 }
 
-.architecture-options {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
-    margin: 30px 0;
-}
-
-.architecture-option {
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    padding: 22px 18px;
+.comparison-table-shell {
+    margin: 0 0 30px;
     border: 1px solid var(--border);
-    border-radius: 18px;
+    border-radius: 0 0 20px 20px;
     background: var(--card-bg);
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-md);
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scrollbar-color: var(--accent) var(--bg-secondary);
 }
 
-.architecture-option-featured {
-    border-color: var(--accent);
-    box-shadow: 0 12px 28px var(--accent-glow);
+.comparison-table-shell:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
 }
 
-.option-kicker,
-.system-boundary > span,
-.service-boundary > span {
-    color: var(--accent);
-    font-size: 0.7rem;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+.architecture-comparison {
+    width: 100%;
+    min-width: 760px;
+    border-spacing: 0;
+    border-collapse: separate;
+    font-size: 0.84rem;
+    line-height: 1.45;
 }
 
-.article-content .architecture-option h3 {
-    margin: 10px 0 18px;
-    font-size: 1.18rem;
-}
-
-.architecture-option dl {
-    margin: 0;
-}
-
-.architecture-option dl > div {
-    padding: 10px 0;
+.comparison-table-title {
+    margin: 30px 0 0 !important;
+    padding: 18px 20px;
+    border: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
+    border-radius: 20px 20px 0 0;
+    color: var(--text-primary);
+    background: var(--bg-secondary);
+    font-size: 0.92rem;
+    font-weight: 700;
 }
 
-.architecture-option dt {
-    color: var(--text-secondary);
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
+.visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+.architecture-comparison th,
+.architecture-comparison td {
+    width: 22.5%;
+    padding: 15px 14px;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    text-align: left;
+}
+
+.architecture-comparison tr > *:last-child {
+    border-right: 0;
+}
+
+.architecture-comparison tbody tr:last-child > * {
+    border-bottom: 0;
+}
+
+.architecture-comparison thead th {
+    color: var(--text-primary);
+    background: var(--bg-secondary);
+    font-size: 0.9rem;
+}
+
+.architecture-comparison thead th span {
+    display: block;
+    margin-top: 5px;
+    color: var(--accent);
+    font-size: 0.66rem;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
 }
 
-.architecture-option dd {
-    margin: 3px 0 0;
-    font-size: 0.88rem;
-    font-weight: 600;
-    line-height: 1.35;
+.architecture-comparison th:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    width: 17.5%;
+    min-width: 132px;
+    color: var(--text-primary);
+    background: var(--bg-secondary);
+    font-weight: 700;
 }
 
-.article-content .architecture-option > p {
-    margin: auto 0 0;
-    padding-top: 18px;
+.architecture-comparison thead th:first-child {
+    z-index: 3;
+}
+
+.architecture-comparison .recommended-column {
+    background: rgba(59, 130, 246, 0.08);
+}
+
+.table-scroll-hint {
+    display: none;
+    margin-top: -18px !important;
     color: var(--text-secondary);
-    font-size: 0.82rem;
-    line-height: 1.5;
+    font-size: 0.78rem;
 }
 
-.extraction-path {
-    display: grid;
-    grid-template-columns: minmax(0, 1.25fr) minmax(120px, 0.55fr) minmax(0, 1fr);
-    gap: 16px;
-    align-items: stretch;
+.recovery-diagram {
     margin: 30px 0;
-    padding: 24px;
+}
+
+.recovery-diagram picture,
+.recovery-diagram img {
+    display: block;
+    width: 100%;
+}
+
+.recovery-diagram img {
+    height: auto;
     border: 1px solid var(--border);
     border-radius: 20px;
-    background: var(--bg-secondary);
+    background: #081426;
+    box-shadow: var(--shadow-md);
 }
 
-.system-boundary,
-.service-boundary {
-    min-width: 0;
-    padding: 20px;
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    background: var(--card-bg);
-}
-
-.service-boundary {
-    border-color: var(--accent);
-}
-
-.article-content .system-boundary h3,
-.article-content .service-boundary h3 {
-    margin: 10px 0 16px;
-    font-size: 1.05rem;
-}
-
-.module-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
-}
-
-.module-grid div {
-    padding: 10px 8px;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    background: var(--bg-secondary);
-    font-size: 0.78rem;
-    font-weight: 600;
-    text-align: center;
-}
-
-.article-content .service-boundary ul {
-    margin: 0;
-    padding-left: 18px;
+.recovery-diagram figcaption {
+    margin-top: 10px;
     color: var(--text-secondary);
-    font-size: 0.78rem;
-}
-
-.extraction-signal {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-secondary);
+    font-size: 0.88rem;
     text-align: center;
-}
-
-.extraction-arrow::before {
-    content: "→";
-    display: block;
-    margin-bottom: 12px;
-    color: var(--accent);
-    font-size: 1.6rem;
-    font-weight: 800;
-}
-
-.extraction-signal strong {
-    color: var(--text-primary);
-    font-size: 0.84rem;
-}
-
-.extraction-signal small {
-    margin-top: 7px;
-    font-size: 0.68rem;
-    line-height: 1.5;
 }
 
 .numbered-checklist {
@@ -674,30 +654,8 @@
         grid-template-columns: 1fr;
     }
 
-    .architecture-options {
-        grid-template-columns: 1fr;
-    }
-
-    .architecture-option {
-        padding: 22px;
-    }
-
-    .extraction-path {
-        grid-template-columns: 1fr;
-        padding: 18px;
-    }
-
-    .extraction-arrow::before {
-        content: "↓";
-        margin-bottom: 6px;
-    }
-
-    .extraction-signal {
-        padding: 5px 0;
-    }
-
-    .module-grid {
-        grid-template-columns: 1fr 1fr;
+    .table-scroll-hint {
+        display: block;
     }
 }
 
