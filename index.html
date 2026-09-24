@@ -40,7 +40,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">Azharul</div>
-            <div class="nav-links">
+            <div class="nav-links" id="primary-navigation">
                 <a href="#home">Home</a>
                 <a href="#tech-match">Tech Stack</a>
                 <a href="#about">About</a>
@@ -52,7 +52,8 @@
                 <a href="blog/">Blog</a>
                 <a href="#contact">Contact</a>
             </div>
-            <button class="theme-toggle" onclick="toggleTheme()">🌓 Dark/Light</button>
+            <button class="theme-toggle" type="button" onclick="toggleTheme()" aria-label="Switch to dark theme" title="Switch to dark theme"><i class="fas fa-moon" aria-hidden="true"></i></button>
+            <button class="menu-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false" aria-label="Open navigation menu"><i class="fas fa-bars" aria-hidden="true"></i></button>
         </div>
     </nav>
 
@@ -100,48 +101,94 @@
         <section id="tech-match" class="tech-match-section">
             <div class="container">
                 <div class="tech-match-card">
-                    <div class="tech-match-badge">⚡ Engineering Focus</div>
-                    <h2>🛠️ Core Technologies & Engineering Expertise</h2>        
+                    <div class="tech-match-badge"><i class="fas fa-bolt" aria-hidden="true"></i> Engineering Focus</div>
+                    <h2><i class="fas fa-code" aria-hidden="true"></i> Core Technologies & Engineering Expertise</h2>
                     <!-- Core Stack -->
                     <div class="primary-stack">
-                        <div class="stack-icon">💻</div>
+                        <div class="stack-icon"><i class="fas fa-laptop-code" aria-hidden="true"></i></div>
                         <div class="stack-text">
                             <span class="stack-label">Core Engineering Stack</span>
                             <div class="stack-items">
                                 <span class="primary-badge">PHP</span>
                                 <span class="primary-badge">Laravel</span>
                                 <span class="primary-badge">JavaScript</span>
+                                <span class="primary-badge">ES6+</span>
                                 <span class="primary-badge">React.js</span>
+                                <span class="primary-badge">Redux</span>
                                 <span class="primary-badge">Node.js</span>
                                 <span class="primary-badge">MySQL</span>
                                 <span class="primary-badge">MS SQL Server</span>
-                                <span class="primary-badge">SQL</span>
-                                <span class="primary-badge">REST APIs</span>
-                                <span class="primary-badge">MVC</span>
-                                <span class="primary-badge">Software Architecture</span>
+                                <span class="primary-badge">RESTful APIs</span>
+                                <span class="primary-badge">API Design</span>
+                                <span class="primary-badge">JWT</span>
+                                <span class="primary-badge">OAuth 2.0</span>
                             </div>
                         </div>
                     </div>
 
                     <!-- Supporting Technologies -->
                     <div class="secondary-stack">
-                        <div class="stack-icon">🚀</div>
+                        <div class="stack-icon"><i class="fas fa-toolbox" aria-hidden="true"></i></div>
                         <div class="stack-text">
                             <span class="stack-label">Supporting Technologies & Practices</span>
                             <div class="stack-items">
                                 <span class="secondary-badge">Docker</span>
                                 <span class="secondary-badge">AWS</span>
                                 <span class="secondary-badge">CI/CD</span>
-                                <span class="secondary-badge">Redis</span>
+                                <span class="secondary-badge">HTML5</span>
+                                <span class="secondary-badge">CSS3</span>
+                                <span class="secondary-badge">Tailwind CSS</span>
+                                <span class="secondary-badge">Bootstrap</span>
+                                <span class="secondary-badge">Zend</span>
                                 <span class="secondary-badge">Git</span>
-                                <span class="secondary-badge">Testing</span>
+                                <span class="secondary-badge">Jenkins</span>
+                                <span class="secondary-badge">Linux/Ubuntu</span>
                                 <span class="secondary-badge">Third-Party Integrations</span>
-                                <span class="secondary-badge">Distributed Systems</span>
                             </div>
                             <div class="view-details-link">
                                 <a href="#skills" class="details-link">
-                                    📋 View full technical breakdown →
+                                    <i class="fas fa-list-check" aria-hidden="true"></i> View full technical breakdown <i class="fas fa-arrow-right" aria-hidden="true"></i>
                                 </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testing and Quality -->
+                    <div class="testing-stack">
+                        <div class="stack-icon"><i class="fas fa-shield-halved" aria-hidden="true"></i></div>
+                        <div class="stack-text">
+                            <span class="stack-label">Testing &amp; Quality</span>
+                            <div class="stack-items">
+                                <span class="secondary-badge">Pest</span>
+                                <span class="secondary-badge">PHPUnit</span>
+                                <span class="secondary-badge">Unit Testing</span>
+                                <span class="secondary-badge">Integration Testing</span>
+                                <span class="secondary-badge">Regression Testing</span>
+                                <span class="secondary-badge">End-to-End Testing</span>
+                                <span class="secondary-badge">API Testing</span>
+                                <span class="secondary-badge">Test Automation</span>
+                                <span class="secondary-badge">Code Review</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Architecture and Engineering Practice -->
+                    <div class="quality-stack">
+                        <div class="stack-icon"><i class="fas fa-diagram-project" aria-hidden="true"></i></div>
+                        <div class="stack-text">
+                            <span class="stack-label">Architecture, Data & Engineering Practice</span>
+                            <div class="stack-items">
+                                <span class="secondary-badge">Schema Design</span>
+                                <span class="secondary-badge">SQL Query Optimization</span>
+                                <span class="secondary-badge">Modular Architecture</span>
+                                <span class="secondary-badge">Microservices</span>
+                                <span class="secondary-badge">Event-Driven Architecture</span>
+                                <span class="secondary-badge">Agile</span>
+                                <span class="secondary-badge">Scrum</span>
+                                <span class="secondary-badge">JIRA</span>
+                                <span class="secondary-badge">Technical Task Breakdown</span>
+                                <span class="secondary-badge">Mentoring</span>
+                                <span class="secondary-badge">Distributed-Team Collaboration</span>
                             </div>
                         </div>
                     </div>
@@ -153,13 +200,13 @@
                             and maintainable software systems</strong> with a focus on
                             clean architecture, performance, reliability, and developer experience.
                         </p>
-                        <a href="blog/" class="tech-cta-btn">📚 Explore Engineering Work →</a>
+                        <a href="blog/" class="tech-cta-btn"><i class="fas fa-book-open" aria-hidden="true"></i> Explore Engineering Work <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                     </div>
 
                     <!-- Engineering Approach -->
                     <div class="not-for-me">
                         <p>
-                            💡 <strong>Engineering approach:</strong>
+                            <i class="fas fa-lightbulb" aria-hidden="true"></i> <strong>Engineering approach:</strong>
                             I focus on understanding business requirements, designing clear
                             system boundaries, writing maintainable code, and continuously
                             improving reliability, performance, testing, and deployment practices.
@@ -195,7 +242,7 @@
                     <div>
                         <div class="exp-title">Senior Software Engineer</div>
                         <div class="exp-company">Fiftytwo Digital Ltd.</div>
-                        <div class="exp-location">📍 Hybrid, Bangladesh</div>
+                        <div class="exp-location"><i class="fas fa-location-dot" aria-hidden="true"></i> Hybrid, Bangladesh</div>
                     </div>
                     <div class="exp-date">Aug 2023 - Present</div>
                 </div>
@@ -218,7 +265,7 @@
                     <div>
                         <div class="exp-title">Senior Software Engineer</div>
                         <div class="exp-company">Smart Technologies (BD) Limited</div>
-                        <div class="exp-location">📍 Onsite, Bangladesh</div>
+                        <div class="exp-location"><i class="fas fa-location-dot" aria-hidden="true"></i> Onsite, Bangladesh</div>
                     </div>
                     <div class="exp-date">Apr 2022 - Aug 2023 (1 yr 5 mos)</div>
                 </div>
@@ -237,7 +284,7 @@
                     <div>
                         <div class="exp-title">Senior Software Engineer</div>
                         <div class="exp-company">Computer Source InfoTech</div>
-                        <div class="exp-location">📍 Onsite, Bangladesh</div>
+                        <div class="exp-location"><i class="fas fa-location-dot" aria-hidden="true"></i> Onsite, Bangladesh</div>
                     </div>
                     <div class="exp-date">Nov 2020 - Mar 2022 (1 yr 5 mos)</div>
                 </div>
@@ -254,7 +301,7 @@
                     <div>
                         <div class="exp-title">PHP Programmer</div>
                         <div class="exp-company">ATI Limited</div>
-                        <div class="exp-location">📍 Onsite, Bangladesh</div>
+                        <div class="exp-location"><i class="fas fa-location-dot" aria-hidden="true"></i> Onsite, Bangladesh</div>
                     </div>
                     <div class="exp-date">Aug 2018 - Nov 2020 (2 yr 4 mos)</div>
                 </div>
@@ -272,7 +319,7 @@
                     <div>
                         <div class="exp-title">Junior PHP Developer</div>
                         <div class="exp-company">Northern Tech BD</div>
-                        <div class="exp-location">📍Onsite, Bangladesh</div>
+                        <div class="exp-location"><i class="fas fa-location-dot" aria-hidden="true"></i> Onsite, Bangladesh</div>
                     </div>
                     <div class="exp-date">Jan 2018 - Jun 2018 (6 mos)</div>
                 </div>
@@ -437,7 +484,7 @@
             <!-- Full SDLC Expertise Banner (For AI Scanners) -->
             <div style="text-align: center;">
                 <div class="sdlc-banner">
-                    <span>📋 Full SDLC: Requirements → Architecture → Development → Testing → Deployment → Maintenance</span>
+                    <span><i class="fas fa-list-check" aria-hidden="true"></i> Full SDLC: Requirements → Architecture → Development → Testing → Deployment → Maintenance</span>
                 </div>
             </div>
             
@@ -445,7 +492,7 @@
                 <!-- Backend (Primary) -->
                 <div class="skill-category">
                     <div class="category-header">
-                        <span class="category-icon">⚙️</span>
+                        <span class="category-icon"><i class="fas fa-server" aria-hidden="true"></i></span>
                         <span class="category-title">Backend (Primary)</span>
                         <span class="category-years">8+ Years</span>
                     </div>
@@ -464,7 +511,7 @@
                 <!-- Frontend (Secondary) -->
                 <div class="skill-category">
                     <div class="category-header">
-                        <span class="category-icon">🎨</span>
+                        <span class="category-icon"><i class="fas fa-palette" aria-hidden="true"></i></span>
                         <span class="category-title">Frontend</span>
                         <span class="category-years">5+ Years</span>
                     </div>
@@ -481,7 +528,7 @@
                 <!-- Databases -->
                 <div class="skill-category">
                     <div class="category-header">
-                        <span class="category-icon">🗄️</span>
+                        <span class="category-icon"><i class="fas fa-database" aria-hidden="true"></i></span>
                         <span class="category-title">Databases</span>
                         <span class="category-years">8+ Years</span>
                     </div>
@@ -498,7 +545,7 @@
                 <!-- DevOps & Tools -->
                 <div class="skill-category">
                     <div class="category-header">
-                        <span class="category-icon">🛠️</span>
+                        <span class="category-icon"><i class="fas fa-screwdriver-wrench" aria-hidden="true"></i></span>
                         <span class="category-title">DevOps & Tools</span>
                         <span class="category-years">4+ Years</span>
                     </div>
@@ -517,12 +564,14 @@
                 <!-- Other Languages (Contextual) -->
                 <div class="skill-category">
                     <div class="category-header">
-                        <span class="category-icon">🔧</span>
+                        <span class="category-icon"><i class="fas fa-code" aria-hidden="true"></i></span>
                         <span class="category-title">Other Languages</span>
                         <span class="category-years">2-5 Years</span>
                     </div>
                     <div class="category-skills">
                         <span class="skill-badge">C#</span>
+                        <span class="skill-badge">.NET</span>
+                        <span class="skill-badge">LINQ</span>
                         <span class="skill-badge">ASP.NET MVC</span>
                         <span class="skill-badge">ASP.NET Web API</span>
                         <span class="skill-badge">Golang</span>
@@ -533,7 +582,7 @@
                 <!-- Methodologies -->
                 <div class="skill-category">
                     <div class="category-header">
-                        <span class="category-icon">📐</span>
+                        <span class="category-icon"><i class="fas fa-diagram-project" aria-hidden="true"></i></span>
                         <span class="category-title">Methodologies</span>
                         <span class="category-years">8+ Years</span>
                     </div>
@@ -551,7 +600,7 @@
 
         <!-- AI Augmentation Section -->
         <section id="ai-augmentation" class="section">
-            <h2 class="section-title">🤖 AI-Augmented Engineering</h2>
+            <h2 class="section-title"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i> AI-Augmented Engineering</h2>
             <div class="ai-container">
                 <div class="ai-header">
                     <span class="ai-badge">Productivity Multiplier</span>
@@ -559,38 +608,38 @@
                 </div>
                 <div class="ai-grid">
                     <div class="ai-card">
-                        <div class="ai-card-icon">⚡</div>
+                        <div class="ai-card-icon"><i class="fas fa-bolt" aria-hidden="true"></i></div>
                         <h3>Boilerplate & Repetition</h3>
                         <p>AI generates migrations, CRUD scaffolds, and API structure. I review, customize, and ensure best practices.</p>
                     </div>
                     <div class="ai-card">
-                        <div class="ai-card-icon">🔍</div>
+                        <div class="ai-card-icon"><i class="fas fa-magnifying-glass" aria-hidden="true"></i></div>
                         <h3>Code Review & Refactoring</h3>
                         <p>AI suggests optimizations. I validate against business logic, performance needs, and team standards.</p>
                     </div>
                     <div class="ai-card">
-                        <div class="ai-card-icon">📖</div>
+                        <div class="ai-card-icon"><i class="fas fa-book-open" aria-hidden="true"></i></div>
                         <h3>Learning & Research</h3>
                         <p>New library? Unfamiliar codebase? AI accelerates my ramp-up. Implementation is always mine.</p>
                     </div>
                     <div class="ai-card">
-                        <div class="ai-card-icon">🐞</div>
+                        <div class="ai-card-icon"><i class="fas fa-bug" aria-hidden="true"></i></div>
                         <h3>Debugging Assistance</h3>
                         <p>AI helps spot edge cases and error patterns. Root cause analysis and fixes come from my experience.</p>
                     </div>
                     <div class="ai-card">
-                        <div class="ai-card-icon">📄</div>
+                        <div class="ai-card-icon"><i class="fas fa-file-lines" aria-hidden="true"></i></div>
                         <h3>Documentation Generation</h3>
                         <p>AI drafts API docs, README files, and inline comments. I review, clarify, and ensure accuracy.</p>
                     </div>
                     <div class="ai-card">
-                        <div class="ai-card-icon">🧪</div>
+                        <div class="ai-card-icon"><i class="fas fa-flask" aria-hidden="true"></i></div>
                         <h3>Test Generation</h3>
                         <p>AI suggests test cases and edge scenarios. I write the final assertions and ensure meaningful coverage.</p>
                     </div>
                 </div>
                 <div class="ai-footer">
-                    <span>🎯 Human decisions, AI acceleration. 8+ years of engineering judgment doesn't get automated.</span>
+                    <span><i class="fas fa-bullseye" aria-hidden="true"></i> Human decisions, AI acceleration. 8+ years of engineering judgment doesn't get automated.</span>
                 </div>
             </div>
         </section>

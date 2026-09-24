@@ -1,7 +1,7 @@
 // ============================================
 // DEBUG MODE - Set to false for production
 // ============================================
-const DEBUG = false;  // 👈 Change to false for live site, true for local testing
+const DEBUG = false;  // Change to false for live site, true for local testing
 
 function debugLog(...args) {
     if (DEBUG) {
@@ -55,14 +55,43 @@ function toggleTheme() {
         html.setAttribute('data-theme', 'dark'); 
         localStorage.setItem('theme', 'dark'); 
     }
+    updateThemeToggle();
 }
+
+function updateThemeToggle() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    document.querySelectorAll('.theme-toggle').forEach(button => {
+        const label = isDark ? 'Switch to light theme' : 'Switch to dark theme';
+        button.setAttribute('aria-label', label);
+        button.setAttribute('title', label);
+        button.innerHTML = `<i class="fas fa-${isDark ? 'sun' : 'moon'}" aria-hidden="true"></i>`;
+    });
+}
+
 if (localStorage.getItem('theme') === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+updateThemeToggle();
+
+const menuToggle = document.querySelector('.menu-toggle');
+const navigationLinks = document.querySelector('.nav-links');
+
+menuToggle?.addEventListener('click', () => {
+    const isOpen = navigationLinks?.classList.toggle('nav-open');
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+    menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+    menuToggle.innerHTML = `<i class="fas fa-${isOpen ? 'xmark' : 'bars'}" aria-hidden="true"></i>`;
+});
 
 // ============================================
 // SMOOTH SCROLL FOR NAVIGATION
 // ============================================
 document.querySelectorAll('.nav-links a').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
+        navigationLinks?.classList.remove('nav-open');
+        menuToggle?.setAttribute('aria-expanded', 'false');
+        if (menuToggle) {
+            menuToggle.setAttribute('aria-label', 'Open navigation menu');
+            menuToggle.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
+        }
         const href = this.getAttribute('href');
         if (!href || !href.startsWith('#')) return;
 
@@ -77,7 +106,7 @@ document.querySelectorAll('.nav-links a').forEach(anchor => {
 // ============================================
 document.getElementById('resume-btn')?.addEventListener('click', (e) => { 
     e.preventDefault(); 
-    alert('📄 Resume PDF available upon request. Connect on LinkedIn!'); 
+    alert('Resume PDF available upon request. Connect on LinkedIn!');
 });
 
 // ============================================
@@ -85,7 +114,7 @@ document.getElementById('resume-btn')?.addEventListener('click', (e) => {
 // ============================================
 document.getElementById('email-btn')?.addEventListener('click', (e) => { 
     e.preventDefault(); 
-    alert('📧 Reach me at: azharul.ece.hstu@gmail.com'); 
+    alert('Reach me at: azharul.ece.hstu@gmail.com');
 });
 
 // ============================================
@@ -115,7 +144,7 @@ if (contactForm) {
             });
             
             if (response.ok) {
-                formStatus.innerHTML = '✅ Message sent successfully! I\'ll get back to you soon.';
+                formStatus.innerHTML = '<i class="fas fa-circle-check" aria-hidden="true"></i> Message sent successfully! I\'ll get back to you soon.';
                 formStatus.className = 'form-status success';
                 contactForm.reset();
                 
@@ -130,7 +159,7 @@ if (contactForm) {
                 throw new Error(errorData.error || 'Something went wrong');
             }
         } catch (error) {
-            formStatus.innerHTML = '❌ Oops! Something went wrong. Please email me directly at azharul.ece.hstu@gmail.com';
+            formStatus.innerHTML = '<i class="fas fa-circle-exclamation" aria-hidden="true"></i> Something went wrong. Please email me directly at azharul.ece.hstu@gmail.com';
             formStatus.className = 'form-status error';
             debugLog('Form submission error:', error);
         } finally {
@@ -164,7 +193,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     'event_value': 1,
                     'button_url': buttonHref
                 });
-                debugLog('✅ Tracked click:', buttonText);
+                debugLog('Tracked click:', buttonText);
             }
         });
     });
@@ -181,7 +210,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         'event_label': sectionId,
                         'event_value': 1
                     });
-                    debugLog('👁️ Viewed section:', sectionId);
+                    debugLog('Viewed section:', sectionId);
                 }
             }
         });
@@ -204,7 +233,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     'event_value': 1,
                     'link_url': linkUrl
                 });
-                debugLog('🔗 External link clicked:', linkText);
+                debugLog('External link clicked:', linkText);
             }
         });
     });
@@ -220,7 +249,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 'event_label': 'total_time',
                 'event_value': timeSpent
             });
-            debugLog('⏱️ Time spent:', timeSpent, 'seconds');
+            debugLog('Time spent:', timeSpent, 'seconds');
         }
     });
     
@@ -234,7 +263,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     'event_label': 'email_button',
                     'event_value': 1
                 });
-                debugLog('📧 Email button clicked');
+                debugLog('Email button clicked');
             }
         });
     }
@@ -249,10 +278,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     'event_label': 'resume_pdf',
                     'event_value': 1
                 });
-                debugLog('📄 Resume download attempted');
+                debugLog('Resume download attempted');
             }
         });
     }
     
-    debugLog('🎯 Event tracking is active! Recruiter actions will be tracked.');
+    debugLog('Event tracking is active! Recruiter actions will be tracked.');
 });
